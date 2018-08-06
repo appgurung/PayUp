@@ -1,0 +1,70 @@
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\roslyn\csc.exe
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\roslyn\csc.exe.config
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\roslyn\csc.rsp
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\roslyn\csi.exe
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\roslyn\csi.rsp
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\roslyn\System.AppContext.dll
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\roslyn\vbc.exe
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\roslyn\vbc.exe.config
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\roslyn\vbc.rsp
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\roslyn\VBCSCompiler.exe
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\MiddleWare.dll.config
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\MiddleWare.dll
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\MiddleWare.pdb
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\obj\Debug\MiddleWare.csprojResolveAssemblyReference.cache
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\obj\Debug\MiddleWare.dll
+C:\Users\Tivas Technologies\Documents\Visual Studio 2017\Projects\CashBox\MiddleWare\obj\Debug\MiddleWare.pdb
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\roslyn\csc.exe
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\roslyn\csc.exe.config
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\roslyn\csc.rsp
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\roslyn\csi.exe
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\roslyn\csi.rsp
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\roslyn\System.AppContext.dll
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\roslyn\vbc.exe
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\roslyn\vbc.exe.config
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\roslyn\vbc.rsp
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\roslyn\VBCSCompiler.exe
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\MiddleWare.dll.config
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\MiddleWare.dll
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\MiddleWare.pdb
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\obj\Debug\MiddleWare.csprojAssemblyReference.cache
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\obj\Debug\MiddleWare.csproj.CoreCompileInputs.cache
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\obj\Debug\MiddleWare.csproj.CopyComplete
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\obj\Debug\MiddleWare.dll
+C:\Users\stunji\Desktop\FROM TIVAS LAPTOP\FROM TIVAS LAPTOP\CashBox\CashBox\MiddleWare\obj\Debug\MiddleWare.pdb

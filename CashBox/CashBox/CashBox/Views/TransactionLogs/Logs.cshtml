@@ -1,0 +1,238 @@
+﻿
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/dataTables.bootstrap.css" rel="stylesheet" />
+
+
+                <div class="col-sm-8 app-main-section">
+                    <div class="row">
+                        <div class="tile tile-blue kudi-header">
+                            <h2 class="title"><img src="/Theme/images/apps/my-payments.png" /> Transaction History</h2>
+                        </div>
+                    </div>
+                    <div class="margtop15">   
+
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingOne">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            <span id="transactOne" class="fa fa-plus-circle"></span> Successful Payments
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body">
+
+                                        <div>
+                                            <div class="table-responsive my-payment">
+                                                <table id="example2" class="table table-striped table-bordered">
+                            <thead>
+                                                        <thead>
+                                                            <tr>
+                                                                <th>PAID FROM</th>
+                                                                <th>AMOUNT</th>
+                                                                <th>STATUS</th>
+                                                                <th>PURPOSE</th>
+                                                                <th>REFERENCE</th>
+                                                                <th>DATE</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody></tbody>
+                                                    </table>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingTwo">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                            <span id="transactTwo" class="fa fa-plus-circle"></span> Failed Payment
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                    <div class="panel-body">
+                                        <div>
+                                            <div class="table-responsive my-payment">
+                                                <table id="example3" class="table table-striped table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>PAID FROM</th>
+                                                            <th>AMOUNT</th>
+                                                            <th>STATUS</th>
+                                                            <th>PURPOSE</th>
+                                                            <th>REFERENCE</th>
+                                                            <th>DATE</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingThree">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                            <span id="transactThree" class="fa fa-plus-circle"></span> Pending Payment
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                    <div class="panel-body">
+
+                                        <div>
+                                            <div class="table-responsive my-payment">
+                                                <table id="example4" class="table table-striped table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>SENT FROM</th>
+                                                            <th>AMOUNT</th>
+                                                            <th>STATUS</th>
+                                                            <th>PURPOSE</th>
+                                                            <th>REFERENCE</th>
+                                                            <th>DATE</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingFour">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                            <span id="transactFour" class="fa fa-plus-circle"></span> All Payments
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                    <div class="panel-body">
+
+                                        <div>
+                                            <div class="table-responsive my-payment">
+                                                <table id="example5" class="table table-striped table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>PAID FROM</th>
+                                                            <th>AMOUNT</th>
+                                                            <th>STATUS</th>
+                                                            <th>PURPOSE</th>
+                                                            <th>REFERENCE</th>
+                                                            <th>DATE</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div><!-- /.app-main-section -->
+<script src="~/Scripts/jquery-2.2.3.min.js"></script>
+
+<script src="~/Scripts/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/dataTables.bootstrap.min.js"></script>
+
+<script>
+
+    $(function () {
+      
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "ajax": {
+                "url": "/TransactionLogs/GetLiveSuccessfulTransactions",
+                "type": "GET",
+                "data": "json"
+            },
+            "order": [5, "desc"],
+            "columns": [
+                { "data": "CustomerEmail", "autoWidth": true },
+                { "data": "Amount", "autoWidth": true },
+                { "data": "TransactionStatus", "autoWidth": true },
+                { "data": "Purpose", "autoWidth": true },
+                { "data": "MerchantRef", "autoWidth": true },
+                { "data": "Date", "autoWidth": true },
+            ]
+        });
+    });
+    
+    $(function () {
+    
+        $('#example3').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "ajax": {
+                "url": "/TransactionLogs/GetLiveFailedTransactions",
+                "type": "GET",
+                "data": "json"
+            },
+            "order": [5, "desc"],
+            "columns": [
+                { "data": "CustomerEmail", "autoWidth": true },
+                { "data": "Amount", "autoWidth": true },
+                { "data": "TransactionStatus", "autoWidth": true },
+                { "data": "Purpose", "autoWidth": true },
+                { "data": "MerchantRef", "autoWidth": true },
+                { "data": "Date", "autoWidth": true },
+            ]
+        });
+    });
+
+    $(function () {
+  
+        $('#example5').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "ajax": {
+                "url": "/TransactionLogs/GetAllLiveTransactions",
+                "type": "GET",
+                "data": "json"
+            },
+            "order": [5, "desc"],
+            "columns": [
+                { "data": "CustomerEmail", "autoWidth": true },
+                { "data": "Amount", "autoWidth": true },
+                { "data": "TransactionStatus", "autoWidth": true },
+                { "data": "Purpose", "autoWidth": true },
+                { "data": "MerchantRef", "autoWidth": true },
+                { "data": "Date", "autoWidth": true },
+            ]
+        });
+    });
+
+</script>

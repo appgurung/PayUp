@@ -1,0 +1,308 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="~/js/ajaxModule.js"></script>
+    <meta charset="utf-8">
+    <title>PayUp</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link href="~/cons/icons.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,500,700|Raleway:400,400i,700,900" rel="stylesheet" />
+    <link rel="icon" href="~/img/favicon.png" type="image/png">
+
+    <!--Sweet Alert CSS--->
+    <link href="@Url.Content("~/Content/sweetalert.css")" rel="stylesheet" />
+    <link href="~/css/theme-matte.css" rel="stylesheet" />
+
+    <style>
+        .loader {
+            border: 16px solid #f3f3f3; /* Light grey */
+            border-top: 16px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 1s linear infinite;
+            z-index: 9999;
+            position: absolute;
+            top: 100px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            margin-top: 140px;
+        }
+
+        @@keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="200" class="bg-faded">
+
+    @Html.Partial("_NavBar")
+
+    <!--
+    ===============
+        Header
+    ===============
+    -->
+    <header>
+        <div class="vid">
+
+
+            <video autoplay loop style="position:relative" poster="@Url.Content("~/themes/PayUp/assets/img/placeholderimage.jpg")" width="1280" height="720">
+                <source src="@Url.Content("~/asset/video.webm")" type="video/webm">
+                <source src="@Url.Content("~/asset/video.mp4")" type="video/mp4">
+                <div id="intro-image">&nbsp;</div>
+            </video>
+        </div>
+        <div class="container" style="position:absolute;top:40px;left:40px">
+
+            <div class="row pb-5 pb-sm-0">
+
+
+                <div class="col-12 text-center pb-5 pb-sm-0" style="margin-top:30vh">
+                    <img src="~/img/landing.png" class="img-fluid mb-5">
+                    <p class="h3 text-white mb-1">Easy end to end integration</p>
+                    <h1 class="font-weight-light mb-5 text-white">Restful services to scale your business.</h1>
+                    @*<article class="d-flex flex-column flex-sm-row flex-sm-wrap justify-content-center">
+                        <button type="button" class="btn btn-outline-warning btn-lg mt-4 mt-sm-0 mb-3 mb-sm-0 px-sm-5" data-toggle="modal" data-target="#loginForm">LOGIN</button>
+                        <button type="button" class="btn btn-outline-success btn-lg mt-3 mt-sm-0 ml-sm-4 px-sm-5" data-toggle="modal" data-target="#signupForm">CREATE NEW ACCOUNT</button>
+                    </article>*@
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--
+    ===========================
+        How PayUp Works
+    ===========================
+    -->
+    <section class="bg-faded" id="how">
+        <div class="container pb-5">
+            <div class="row py-5 justify-content-center">
+                <div class="col-12 col-sm-10 text-center">
+                    <h2 class="font-weight-bold">API Docs</h2>
+                    <hr class="my-3 bg-success pb-1" width="50">
+                    <p>
+                        Our restful Api's makes it easy to integrate with our payment gateway and world class services that you accept any form of payment online.
+                    </p>
+                </div>
+            </div>
+            <div class="card-group mb-5 text-center">
+                <!--
+                    Step One
+                -->
+                <div class="col-12 col-sm-4 col-lg-3 card py-4">
+                    <img src="~/cons/request.svg" class="w-75 d-block mx-auto center mb-3" alt="Request Access">
+                    <h5>Request Access for App</h5>
+                    <p>Request access for PayConnect App</p>
+                </div>
+                <!--
+                    Step Two
+                -->
+                <div class="col-12 col-sm-4 col-lg-3 card py-4">
+                    <img src="~/cons/approved.svg" class="w-75 d-block mx-auto center mb-3 mt-4" alt="Review and Approval">
+                    <h5>Review and Approval</h5>
+                    <p class="truncate-me">
+                        Your bank alerts and other transactions that reflects on your phone are automatically analyzed and reviewed each time
+                        you receive an SMS/EMAIL Notification. An Approved Loan amount which you qualify for is highlighted on your dashboard.
+                    </p>
+                </div>
+                <!--
+                    Step Three
+                -->
+                <div class="col-12 col-sm-4 col-lg-3 card py-4">
+                    <img src="~/cons/payout.svg" class="w-75 d-block mx-auto center mb-3" style="margin-top:2rem" alt="Loan PAyout">
+                    <h5>Loan Payout</h5>
+                    <p class="truncate-me">
+                        Loan amount is disbursed instantly to your PayConnect Loan e-wallet at your request which you can withdraw from any
+                        ATM, use on any POS or transfer to any bank account of their choice in Nigeria.
+                    </p>
+                </div>
+                <!--
+                    Step Four
+                -->
+                <div class="col-12 col-sm-4 col-lg-3 card py-4">
+                    <img src="~/cons/repay.svg" class="w-75 d-block mx-auto center mb-3" style="margin-top:2rem" alt="Loan Repayment">
+                    <h5>Loan Repayment</h5>
+                    <p class="truncate-me">Repayment is effortless, as we automatically make deduction from your source account on the loan repayment due date.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="m-0">
+    <!--
+    ====================
+        Contact Us
+    ====================
+    -->
+    <section class="bg-success text-white" id="contact">
+        <div class="container py-5">
+            <div class="row align-items-center" style="min-height:50vh">
+                <div class="col-12 col-sm-5 text-center text-sm-left">
+                    <h1 class="display-1 d-inline-flex mb-4"><i class="icon-chat"></i></h1>
+                    <h1>Talk to us</h1>
+                    <p class="lead">Have a complaint, suggestion or compliment?</p>
+                </div>
+                <div class="col-12 col-sm-4 ml-lg-auto text-center">
+                    <a href="mailto:hello@payup.ng" class="custom-btn btn-5"><span>hello@payup.ng</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @Html.Partial("_Footer")
+
+    <!--
+    ==============
+        Modals
+    ==============
+    -->
+    <!-- SignUp  Form -->
+
+    <div id="signupForm" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="signupFormLabel" aria-hidden="true">
+        <div class="modal-dialog d-flex" role="document">
+            <div class="modal-content rounded-0 align-self-center w-100 px-sm-4">
+                <div class="modal-header pb-0 pt-4 justify-content-center border-bottom-0">
+                    <h4 class="modal-title text-success font-weight-bold" id="ftext">CREATE ACCOUNT</h4>
+                </div>
+                <div class="modal-body pt-0">
+                    <hr class="mt-1" width="50">
+                    <div class="loader" id="loader" style="display:none"></div>
+                    <form onsubmit="subForm()">
+                        <div class="form-group">
+                            <label class="col-form-label">Full Name</label>
+                            <input type="text" name="FullName" id="FullName" class="form-control form-control-lg">
+                            <p class="text-danger" id="estatus"></p>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label">Phone No.:</label>
+                            <input type="text" name="PhoneNo" id="PhoneNo" class="form-control form-control-lg">
+                            <p class="text-danger" id="estatus"></p>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label">Email Address</label>
+                            <input type="email" name="Email" id="RegEmail" class="form-control form-control-lg">
+                            <p class="text-danger" id="estatus"></p>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label">Password</label>
+                            <input type="password" name="Password" id="RegPassword" class="form-control form-control-lg">
+                            <p class="text-danger" id="estatus"></p>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label">Confirm Password</label>
+                            <input type="password" name="Password" id="ConfirmPassword" class="form-control form-control-lg">
+                            <p class="text-danger" id="estatus"></p>
+                        </div>
+
+                        <div class="form-group justify-content-between d-flex flex-wrap">
+                            <div id="status"></div>
+                            <button class="btn btn-warning btn-lg px-5" type="button" style="font-size:16px;border-radius:.3rem!important;color:black" id="SignUpButton">CREATE ACCOUNT</button>
+                            <button type="button" class="btn btn-secondary" style="border:none;font-size:16px;border-radius:0!important;padding:1rem" data-dismiss="modal">CLOSE</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--
+
+        Login Form
+
+    -->
+    <div id="loginForm" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="signupFormLabel" aria-hidden="true">
+        <div class="modal-dialog d-flex" role="document">
+            <div class="modal-content rounded-0 align-self-center w-100 px-sm-4">
+                <div class="modal-header pb-0 pt-4 justify-content-center border-bottom-0">
+                    <h4 class="modal-title text-success font-weight-bold" id="ftext">Portal Login</h4>
+                </div>
+                <div class="modal-body pt-0">
+                    <hr class="mt-1" width="50">
+                    <div class="loader" id="loader" style="display:none"></div>
+                    <form>
+
+
+                        <div class="form-group">
+                            <label class="col-form-label">Email Address</label>
+                            <input type="email" name="Email" id="Email" class="form-control form-control-lg">
+                            <p class="text-danger" id="estatus"></p>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label">Password</label>
+                            <input type="password" name="Password" id="Password" class="form-control form-control-lg">
+                            <p class="text-danger" id="estatus"></p>
+                        </div>
+
+                        <div class="form-group justify-content-between d-flex flex-wrap">
+                            <div id="status"></div>
+                            <button class="btn btn-warning btn-lg px-5" type="button" style="font-size:16px;border-radius:.3rem!important;color:black" id="LoginButton">Login</button>
+                            <button type="button" id="ForgotPassword" class="btn btn-success btn-lg" style="font-size:16px;border-radius:.3rem!important;color:black" data-toggle="modal" data-target="#passwordRecoveryForm">Forgot Password</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--
+        Forgot Password
+    -->
+
+    <div id="passwordRecoveryForm" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="signupFormLabel" aria-hidden="true">
+        <div class="modal-dialog d-flex" role="document">
+            <div class="modal-content rounded-0 align-self-center w-100 px-sm-4">
+                <div class="modal-header pb-0 pt-4 justify-content-center border-bottom-0">
+                    <h4 class="modal-title text-success font-weight-bold" id="ftext">Password Recovery</h4>
+                </div>
+                <div class="modal-body pt-0">
+                    <hr class="mt-1" width="50">
+                    <form onsubmit="subForm()">
+
+
+                        <div class="form-group">
+                            <label class="col-form-label">Email Address</label>
+                            <input type="email" name="Email" id="Email" class="form-control form-control-lg">
+                            <p class="text-danger" id="estatus"></p>
+                        </div>
+
+                        <div class="form-group justify-content-between d-flex flex-wrap">
+                            <div id="status"></div>
+                            <button class="btn btn-warning btn-lg px-5" type="button" style="font-size:16px;border-radius:.3rem!important;color:black" id="signupBtn">Send Recovery Mail</button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--
+        Scripts
+    -->
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/natter/jquery.stateLga.js"></script>
+    <script src="~/natter/jquery.ucfirst.js"></script>
+
+    <!--Sweet Alert JS-->
+    <script src="@Url.Content("~/Scripts/sweetalert.js")"></script>
+
+</body>
+</html>

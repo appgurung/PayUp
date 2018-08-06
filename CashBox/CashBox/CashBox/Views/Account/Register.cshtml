@@ -1,0 +1,265 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from www.kudikonnect.com/Account/Register by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 23 Aug 2017 10:27:12 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.html">
+
+    <title>Welcome to CashBox</title>
+
+    <!--  RESET STYLES  -->
+    <link href="../Theme/css/reset.css" rel="stylesheet">
+
+    <!-- Core CSS -->
+    <link href="../Theme/css/lib/metro-bootstrap.min.css" rel="stylesheet">
+    <link href="../Theme/css/lib/bootstrap.min.css" rel="stylesheet">
+
+    <!--  Slider Style  -->
+    <link rel="stylesheet" href="../Theme/css/bjqs.css">
+
+    <!-- Custom CSS -->
+    <link href="../Theme/css/style.css" rel="stylesheet">
+
+    <!--  Js Library  -->
+    <script src="../Theme/js/lib/jquery-2.1.1.js"></script>
+
+    <!-- Modernizr -->
+    <script src="../Theme/js/modernizr.js"></script>
+
+    <!--Sweet Alert CSS--->
+    <link href="@Url.Content("~/Content/sweetalert.css")" rel="stylesheet" />
+
+    <style>
+        .loader {
+            border: 16px solid #f3f3f3; /* Light grey */
+            border-top: 16px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 1s linear infinite;
+            z-index: 9999;
+            position: absolute;
+            top: 100px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            margin-top: 140px;
+        }
+
+        @@keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body class="home-bg-none">
+
+    <section class="home-lite">
+
+        <div class="container">
+
+            <div class="margtop100"></div>
+            <div class="loader" id="loader" style="display:none"></div>
+            <form action="" class="kudikonnect-signin plain" method="post" role="form">
+              <h5 class="form-signin-heading">Create an Account with TapaPay</h5>
+                <d id="ErrorDisplay" style="color:red;font-style:italic;font-weight:bold"></d>
+                <hr />
+                <div class="validation-summary-valid text-danger" data-valmsg-summary="true">
+                    <ul>
+                        <li style="display:none"></li>
+                    </ul>
+                </div>
+                
+                <label class="sr-only" for="Email">Full Name</label>
+
+                <input class="form-control" data-val="true" data-val-email="The Name field is not a valid e-mail address." data-val-required="The Email field is required." id="FullName" name="FullName" placeholder="Full Name" type="text" value="" />
+                <br />
+                <br/>
+
+                <label class="sr-only" for="PhoneNo">Mobile Number</label>
+                
+                <input class="form-control register" data-val="true" data-val-required="Telephone Number Required" id="PhoneNo" name="PhoneNo" placeholder="Phone Number (e.g 08058009667)" type="text" value="" />
+                <br/>
+                <label class="sr-only" for="Email">Email</label>
+                
+                <input class="form-control" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Email" name="Email" placeholder="Email" type="text" value="" />
+                <br/>
+                <label class="sr-only" for="Password">Password</label>
+                
+                <input class="form-control register" data-val="true" data-val-length="The Password must be at least 6 characters long." data-val-length-max="100" data-val-length-min="6" data-val-required="The Password field is required." id="Password" name="Password" placeholder="Create your password" type="password" />
+                <br/>
+                <label class="sr-only" for="ConfirmPassword">Confirm password</label>
+                
+                <input class="form-control confirm" data-val="true" data-val-equalto="The password and confirmation password do not match." data-val-equalto-other="*.Password" id="ConfirmPassword" name="ConfirmPassword" placeholder="Confirm password" type="password" />                
+                <div class="checkbox">
+
+                    <label class="pull-left">
+                        <small class="agreement">By signing up, you are agreeing to KudiKonnect’s <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a></small>
+                    </label>
+
+                </div>
+
+                <button class="btn btn-danger btn-block radius-20" type="button" id="SignUpButton"><i class="fa fa-user"></i> Sign Up</button>
+                <span class="have-account">Already have an account? <strong><a href="@Url.Action("Login","Account")">Sign in</a></strong></span>
+                <hr />
+            </form>
+        </div>
+
+
+    </section>
+    <!--Sweet Alert JS-->-->
+    <script src="@Url.Content("~/Scripts/sweetalert.js")"></script>
+
+
+    <script>
+        $(document).ready(function () {
+
+
+            //Form Validation before submitting form
+            document.getElementById("SignUpButton").onclick = function () {
+                if (document.getElementById("Password").value != document.getElementById("ConfirmPassword").value) {
+
+                    document.getElementById("ErrorDisplay").innerHTML = "Password does not match";
+
+                    return false;
+
+                }
+
+                $("#loader").css({ "display": "block" });
+                document.getElementById("SignUpButton").innerHTML = "Please Wait";
+                document.getElementById("ErrorDisplay").innerHTML = "";
+                document.getElementById("SignUpButton").disabled = true;
+
+                $.ajax({
+
+                    url: '/Account/CreateAccount',
+                    type: "POST",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify({
+                        FullName: $('#FullName').val(),
+                        Email: $('#Email').val(),
+                        PhoneNo: $('#PhoneNo').val(),
+                        Password: $('#Password').val(),
+                        ConfirmPassword: $('#ConfirmPassword').val(),
+                    }),
+                    success: function (result) {
+
+                        if (result.ResponseCode === 00) {
+                            swal({
+                                title: "Account Successfully Created",
+                                text: "Thanks for signing up, click button below to proceed to dashboard",
+                                type: "success",
+                                confirmButtonText: "Continue to Dashboard"
+                            },
+                                function (isConfirm) {
+                                    if (isConfirm) {
+                                        window.location.href = "/Account/Login";
+                                    }
+                                });
+
+                        }
+
+                        else if (result.ResponseCode === 04) {
+                            $("#loader").css({ "display": "none" });
+                            document.getElementById("SignUpButton").innerHTML = "Create Account";
+
+                            document.getElementById("SignUpButton").disabled = false;
+                            swal({
+                                title: "Password Problem",
+                                text: result.Message,
+                                type: "warning",
+                            });
+                        }
+                        else if (result.ResponseCode === 02) {
+                            $("#loader").css({ "display": "none" });
+                            document.getElementById("SignUpButton").innerHTML = "Create Account";
+
+                            document.getElementById("SignUpButton").disabled = false;
+
+                            swal({
+                                title: "Password Problem",
+                                text: result.Message,
+                                type: "warning",
+                            });
+                        }
+                        else if (result.ResponseCode == 03) {
+                            $("#loader").css({ "display": "none" });
+                            document.getElementById("SignUpButton").innerHTML = "Create Account";
+
+                            document.getElementById("SignUpButton").disabled = false;
+                            swal({
+                                title: "Password Problem",
+                                text: result.Message,
+                                type: "warning",
+                            });
+                        }
+
+                        else if (result.ResponseCode == 01) {
+                            $("#loader").css({ "display": "none" });
+                            document.getElementById("SignUpButton").innerHTML = "Create Account";
+
+                            document.getElementById("SignUpButton").disabled = false;
+
+                            swal({
+                                title: "Provided E-Mail Already Exist",
+                                text: result.Message,
+                                type: "warning",
+                                showCancelButton: true,
+                                confirmButtonColor: "#DD6B55",
+                                confirmButtonText: "Login to Dashboard",
+                                closeOnConfirm: false
+                            },
+                                function () {
+                                    window.location.href = "/Account/Login";
+                                });
+                        }
+
+                        else if (result.ResponseCode == 08) {
+                            $("#loader").css({ "display": "none" });
+                            document.getElementById("LoginButton").innerText = "Login to Dashboard"
+
+                            document.getElementById("LoginButton").disabled = false
+
+                            swal({
+                                title: "Password Error",
+                                text: result.Message,
+                                type: "error",
+                            });
+                        }
+                    },
+                    error: function (result) {
+                        $("#loader").css({ "display": "none" });
+                        document.getElementById("SignUpButton").innerHTML = "Create Account";
+
+                        document.getElementById("SignUpButton").disabled = false;
+                        swal({
+                            title: "Error",
+                            text: "Client Side Error, please check internet connection",
+                            type: "error"
+                        });
+                    }
+                })
+            }
+        });
+    </script>
+
+</body>
+</html>
+

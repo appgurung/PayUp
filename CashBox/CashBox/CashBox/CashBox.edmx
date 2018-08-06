@@ -1,0 +1,1137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CashBoxModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ApiKey">
+          <Key>
+            <PropertyRef Name="KeyID" />
+          </Key>
+          <Property Name="KeyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MerchantID" Type="nvarchar" MaxLength="100" />
+          <Property Name="TestPrivateKey" Type="nvarchar" MaxLength="100" />
+          <Property Name="TestPublicKey" Type="nvarchar" MaxLength="100" />
+          <Property Name="LivePrivateKey" Type="nvarchar" MaxLength="100" />
+          <Property Name="LivePublicKey" Type="nvarchar" MaxLength="100" />
+          <Property Name="isLiveMode" Type="bit" />
+        </EntityType>
+        <EntityType Name="Banks">
+          <Key>
+            <PropertyRef Name="BankID" />
+          </Key>
+          <Property Name="BankID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BankName" Type="nvarchar" MaxLength="100" />
+          <Property Name="SortCode" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="BusinessProfile">
+          <Key>
+            <PropertyRef Name="BusinessProfileID" />
+          </Key>
+          <Property Name="BusinessProfileID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MerchantID" Type="nvarchar" MaxLength="100" />
+          <Property Name="BusinessName" Type="nvarchar" MaxLength="100" />
+          <Property Name="PhysicalAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="WebsiteLink" Type="nvarchar" MaxLength="100" />
+          <Property Name="FacebookLink" Type="nvarchar" MaxLength="100" />
+          <Property Name="TwitterLink" Type="nvarchar" MaxLength="100" />
+          <Property Name="InstagramLink" Type="nvarchar" MaxLength="100" />
+          <Property Name="YoutubeLink" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CardBlacklist">
+          <Key>
+            <PropertyRef Name="CardBlacklistID" />
+          </Key>
+          <Property Name="CardBlacklistID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MerchantID" Type="nvarchar" MaxLength="100" />
+          <Property Name="CardIssuerer" Type="nvarchar" MaxLength="100" />
+          <Property Name="FirstSixDigits" Type="nvarchar" MaxLength="100" />
+          <Property Name="LastFourDigits" Type="nvarchar" MaxLength="100" />
+          <Property Name="CardType" Type="nvarchar" MaxLength="100" />
+          <Property Name="IssuingCountry" Type="nvarchar" MaxLength="100" />
+          <Property Name="Date" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CompanyProfile">
+          <Key>
+            <PropertyRef Name="CompanyProfileID" />
+          </Key>
+          <Property Name="CompanyProfileID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MerchantID" Type="nvarchar" MaxLength="100" />
+          <Property Name="RcNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="DocName" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MerchantID" Type="nvarchar" MaxLength="100" />
+          <Property Name="CustomerCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="100" />
+          <Property Name="PhoneNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="DateAdded" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+          </Key>
+          <Property Name="InvoiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MerchantID" Type="nvarchar" MaxLength="100" />
+          <Property Name="InvoiceCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="Status" Type="nvarchar" MaxLength="100" />
+          <Property Name="CustomerEmail" Type="nvarchar" MaxLength="100" />
+          <Property Name="RequestedBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="Amount" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="isAttachmentAllowed" Type="bit" />
+          <Property Name="DateRequested" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="InvoiceAttachment">
+          <Key>
+            <PropertyRef Name="AttachmentID" />
+          </Key>
+          <Property Name="AttachmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvoiceID" Type="nvarchar" MaxLength="100" />
+          <Property Name="DocName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="IpBlacklisting">
+          <Key>
+            <PropertyRef Name="IpBlacklistingID" />
+          </Key>
+          <Property Name="IpBlacklistingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MerchantID" Type="nvarchar" MaxLength="100" />
+          <Property Name="IpAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="Country" Type="nvarchar" MaxLength="100" />
+          <Property Name="Reason" Type="nvarchar" MaxLength="100" />
+          <Property Name="Date" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LiveTransactions">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MerchantID" Type="nvarchar" MaxLength="100" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="MerchantTransactionRef" Type="nvarchar" MaxLength="100" />
+          <Property Name="CardProcessorTransactionRef" Type="nvarchar" MaxLength="100" />
+          <Property Name="Amount" Type="nvarchar" MaxLength="100" />
+          <Property Name="Purpose" Type="nvarchar" MaxLength="100" />
+          <Property Name="ResponseCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="TransactionStatus" Type="nvarchar" MaxLength="100" />
+          <Property Name="IpAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="Date" Type="nvarchar" MaxLength="100" />
+          <Property Name="TimeStamp" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="MerchantLogo">
+          <Key>
+            <PropertyRef Name="MerchantLogoID" />
+          </Key>
+          <Property Name="MerchantLogoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MerchantID" Type="nvarchar" MaxLength="100" />
+          <Property Name="LogoName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="MerchantStatus">
+          <Key>
+            <PropertyRef Name="MerchantStatusID" />
+          </Key>
+          <Property Name="MerchantStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MerchantID" Type="nvarchar" MaxLength="100" />
+          <Property Name="isLiveMode" Type="bit" />
+        </EntityType>
+        <EntityType Name="PaymentPage">
+          <Key>
+            <PropertyRef Name="PaymentmentPageID" />
+          </Key>
+          <Property Name="PaymentmentPageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MerchantID" Type="nvarchar" MaxLength="100" />
+          <Property Name="PageName" Type="nvarchar" MaxLength="100" />
+          <Property Name="PageDescription" Type="nvarchar" MaxLength="100" />
+          <Property Name="Amount" Type="nvarchar" MaxLength="100" />
+          <Property Name="RedirectLink" Type="nvarchar" MaxLength="100" />
+          <Property Name="CustomLink" Type="nvarchar" MaxLength="100" />
+          <Property Name="SuccessMessage" Type="nvarchar" MaxLength="100" />
+          <Property Name="Type" Type="nvarchar" MaxLength="100" />
+          <Property Name="Link" Type="nvarchar" MaxLength="100" />
+          <Property Name="Date" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="PaymentPageFields">
+          <Key>
+            <PropertyRef Name="FieldID" />
+          </Key>
+          <Property Name="FieldID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PaymentPageID" Type="nvarchar" MaxLength="100" />
+          <Property Name="PaymentField" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Payout">
+          <Key>
+            <PropertyRef Name="PayoutID" />
+          </Key>
+          <Property Name="PayoutID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MerchantID" Type="nvarchar" MaxLength="100" />
+          <Property Name="RequestCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="Status" Type="nvarchar" MaxLength="100" />
+          <Property Name="TotalTransactions" Type="nvarchar" MaxLength="100" />
+          <Property Name="Amount" Type="nvarchar" MaxLength="100" />
+          <Property Name="SettlementDate" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Plan">
+          <Key>
+            <PropertyRef Name="PlanID" />
+          </Key>
+          <Property Name="PlanID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MerchantID" Type="nvarchar" MaxLength="100" />
+          <Property Name="PlanCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="PlanName" Type="nvarchar" MaxLength="100" />
+          <Property Name="PlanDescription" Type="nvarchar" MaxLength="100" />
+          <Property Name="PlanAmount" Type="nvarchar" MaxLength="100" />
+          <Property Name="Interval" Type="nvarchar" MaxLength="100" />
+          <Property Name="InvioiceLimit" Type="nvarchar" MaxLength="100" />
+          <Property Name="Date" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Priviledge">
+          <Key>
+            <PropertyRef Name="PriviledgeID" />
+          </Key>
+          <Property Name="PriviledgeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleID" Type="nvarchar" MaxLength="100" />
+          <Property Name="PriviledgeType" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ProductFields">
+          <Key>
+            <PropertyRef Name="ProductFieldID" />
+          </Key>
+          <Property Name="ProductFieldID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FieldName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ProductPageID" Type="nvarchar" MaxLength="100" />
+          <Property Name="MerchantRef" Type="nvarchar" MaxLength="100" />
+          <Property Name="TransactionStatus" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ProductName">
+          <Key>
+            <PropertyRef Name="ProductNameID" />
+          </Key>
+          <Property Name="ProductNameID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="ProductPageID" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ProductPage">
+          <Key>
+            <PropertyRef Name="ProductPageID" />
+          </Key>
+          <Property Name="ProductPageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MerchantID" Type="nvarchar" MaxLength="100" />
+          <Property Name="ProductDescription" Type="nvarchar" MaxLength="100" />
+          <Property Name="RedirectLink" Type="nvarchar" MaxLength="100" />
+          <Property Name="CustomLink" Type="nvarchar" MaxLength="100" />
+          <Property Name="Type" Type="nvarchar" MaxLength="100" />
+          <Property Name="Link" Type="nvarchar" MaxLength="100" />
+          <Property Name="PageName" Type="nvarchar" MaxLength="100" />
+          <Property Name="SuccessMessage" Type="nvarchar" MaxLength="100" />
+          <Property Name="Date" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ProductPrice">
+          <Key>
+            <PropertyRef Name="ProductPriceID" />
+          </Key>
+          <Property Name="ProductPriceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Price" Type="nvarchar" MaxLength="100" />
+          <Property Name="ProductPageID" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Registration">
+          <Key>
+            <PropertyRef Name="RegistrationID" />
+          </Key>
+          <Property Name="RegistrationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BusinessName" Type="nvarchar" MaxLength="100" />
+          <Property Name="PhoneNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="Password" Type="nvarchar" MaxLength="200" />
+          <Property Name="Date" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nchar" MaxLength="100" />
+          <Property Name="RoleDescription" Type="nchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Settlement">
+          <Key>
+            <PropertyRef Name="SettlementID" />
+          </Key>
+          <Property Name="SettlementID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MerchantID" Type="nvarchar" MaxLength="100" />
+          <Property Name="SettlementRef" Type="nvarchar" MaxLength="100" />
+          <Property Name="Amount" Type="nvarchar" MaxLength="100" />
+          <Property Name="Status" Type="nvarchar" MaxLength="100" />
+          <Property Name="Date" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="SettlementDetail">
+          <Key>
+            <PropertyRef Name="SettlementDetailID" />
+          </Key>
+          <Property Name="SettlementDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MerchantID" Type="nvarchar" MaxLength="100" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="100" />
+          <Property Name="AccountNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="BankName" Type="nvarchar" MaxLength="100" />
+          <Property Name="SortCode" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Subscription">
+          <Key>
+            <PropertyRef Name="SubscriptionID" />
+          </Key>
+          <Property Name="SubscriptionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MerchantID" Type="nvarchar" MaxLength="100" />
+          <Property Name="PlanID" Type="nvarchar" MaxLength="100" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="100" />
+          <Property Name="CustomerEmail" Type="nvarchar" MaxLength="100" />
+          <Property Name="Amount" Type="nvarchar" MaxLength="100" />
+          <Property Name="Status" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TeamMember">
+          <Key>
+            <PropertyRef Name="TeamID" />
+          </Key>
+          <Property Name="TeamID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MerchantID" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Password" Type="nvarchar" MaxLength="100" />
+          <Property Name="Role" Type="nvarchar" MaxLength="100" />
+          <Property Name="LastLogin" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TestTransactions">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MerchantID" Type="nvarchar" MaxLength="100" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="MerchantTransactionRef" Type="nvarchar" MaxLength="100" />
+          <Property Name="Amount" Type="nvarchar" MaxLength="100" />
+          <Property Name="Purpose" Type="nvarchar" MaxLength="100" />
+          <Property Name="ResponseCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="TransactionStatus" Type="nvarchar" MaxLength="100" />
+          <Property Name="IpAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="Date" Type="nvarchar" MaxLength="100" />
+          <Property Name="TimeStamp" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Token">
+          <Key>
+            <PropertyRef Name="TokenID" />
+          </Key>
+          <Property Name="TokenID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MerchantID" Type="nvarchar" MaxLength="100" />
+          <Property Name="TokenNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="CardType" Type="nvarchar" MaxLength="100" />
+          <Property Name="MaskedCardNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="ExpiryDate" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="URL">
+          <Key>
+            <PropertyRef Name="UriID" />
+          </Key>
+          <Property Name="UriID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MerchantID" Type="nvarchar" MaxLength="100" />
+          <Property Name="WebhookURL" Type="nvarchar" MaxLength="100" />
+          <Property Name="CallBackURL" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityContainer Name="CashBoxModelStoreContainer">
+          <EntitySet Name="ApiKey" EntityType="Self.ApiKey" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Banks" EntityType="Self.Banks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BusinessProfile" EntityType="Self.BusinessProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CardBlacklist" EntityType="Self.CardBlacklist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompanyProfile" EntityType="Self.CompanyProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvoiceAttachment" EntityType="Self.InvoiceAttachment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IpBlacklisting" EntityType="Self.IpBlacklisting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LiveTransactions" EntityType="Self.LiveTransactions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MerchantLogo" EntityType="Self.MerchantLogo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MerchantStatus" EntityType="Self.MerchantStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentPage" EntityType="Self.PaymentPage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentPageFields" EntityType="Self.PaymentPageFields" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payout" EntityType="Self.Payout" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Plan" EntityType="Self.Plan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Priviledge" EntityType="Self.Priviledge" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductFields" EntityType="Self.ProductFields" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductName" EntityType="Self.ProductName" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductPage" EntityType="Self.ProductPage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductPrice" EntityType="Self.ProductPrice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Registration" EntityType="Self.Registration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Settlement" EntityType="Self.Settlement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SettlementDetail" EntityType="Self.SettlementDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subscription" EntityType="Self.Subscription" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TeamMember" EntityType="Self.TeamMember" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TestTransactions" EntityType="Self.TestTransactions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Token" EntityType="Self.Token" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="URL" EntityType="Self.URL" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CashBoxModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CashBoxEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CardBlacklists" EntityType="CashBoxModel.CardBlacklist" />
+          <EntitySet Name="InvoiceAttachments" EntityType="CashBoxModel.InvoiceAttachment" />
+          <EntitySet Name="IpBlacklistings" EntityType="CashBoxModel.IpBlacklisting" />
+          <EntitySet Name="LiveTransactions" EntityType="CashBoxModel.LiveTransaction" />
+          <EntitySet Name="MerchantLogoes" EntityType="CashBoxModel.MerchantLogo" />
+          <EntitySet Name="MerchantStatus" EntityType="CashBoxModel.MerchantStatu" />
+          <EntitySet Name="PaymentPages" EntityType="CashBoxModel.PaymentPage" />
+          <EntitySet Name="PaymentPageFields" EntityType="CashBoxModel.PaymentPageField" />
+          <EntitySet Name="Priviledges" EntityType="CashBoxModel.Priviledge" />
+          <EntitySet Name="ProductFields" EntityType="CashBoxModel.ProductField" />
+          <EntitySet Name="ProductNames" EntityType="CashBoxModel.ProductName" />
+          <EntitySet Name="ProductPages" EntityType="CashBoxModel.ProductPage" />
+          <EntitySet Name="ProductPrices" EntityType="CashBoxModel.ProductPrice" />
+          <EntitySet Name="Settlements" EntityType="CashBoxModel.Settlement" />
+          <EntitySet Name="TeamMembers" EntityType="CashBoxModel.TeamMember" />
+          <EntitySet Name="TestTransactions" EntityType="CashBoxModel.TestTransaction" />
+          <EntitySet Name="Tokens" EntityType="CashBoxModel.Token" />
+          <EntitySet Name="URLs" EntityType="CashBoxModel.URL" />
+          <EntitySet Name="Payouts" EntityType="CashBoxModel.Payout" />
+          <EntitySet Name="BusinessProfiles" EntityType="CashBoxModel.BusinessProfile" />
+          <EntitySet Name="CompanyProfiles" EntityType="CashBoxModel.CompanyProfile" />
+          <EntitySet Name="SettlementDetails" EntityType="CashBoxModel.SettlementDetail" />
+          <EntitySet Name="Customers" EntityType="CashBoxModel.Customer" />
+          <EntitySet Name="Plans" EntityType="CashBoxModel.Plan" />
+          <EntitySet Name="Subscriptions" EntityType="CashBoxModel.Subscription" />
+          <EntitySet Name="Invoices" EntityType="CashBoxModel.Invoice" />
+          <EntitySet Name="ApiKeys" EntityType="CashBoxModel.ApiKey" />
+          <EntitySet Name="Roles" EntityType="CashBoxModel.Role" />
+          <EntitySet Name="Banks" EntityType="CashBoxModel.Bank" />
+          <EntitySet Name="Registrations" EntityType="CashBoxModel.Registration" />
+        </EntityContainer>
+        <EntityType Name="CardBlacklist">
+          <Key>
+            <PropertyRef Name="CardBlacklistID" />
+          </Key>
+          <Property Name="CardBlacklistID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MerchantID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CardIssuerer" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FirstSixDigits" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LastFourDigits" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CardType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IssuingCountry" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="InvoiceAttachment">
+          <Key>
+            <PropertyRef Name="AttachmentID" />
+          </Key>
+          <Property Name="AttachmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DocName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="IpBlacklisting">
+          <Key>
+            <PropertyRef Name="IpBlacklistingID" />
+          </Key>
+          <Property Name="IpBlacklistingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MerchantID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IpAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Reason" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LiveTransaction">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MerchantID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MerchantTransactionRef" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CardProcessorTransactionRef" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Purpose" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ResponseCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TransactionStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IpAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TimeStamp" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MerchantLogo">
+          <Key>
+            <PropertyRef Name="MerchantLogoID" />
+          </Key>
+          <Property Name="MerchantLogoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MerchantID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LogoName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MerchantStatu">
+          <Key>
+            <PropertyRef Name="MerchantStatusID" />
+          </Key>
+          <Property Name="MerchantStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MerchantID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="isLiveMode" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="PaymentPage">
+          <Key>
+            <PropertyRef Name="PaymentmentPageID" />
+          </Key>
+          <Property Name="PaymentmentPageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MerchantID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PageName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PageDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RedirectLink" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CustomLink" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SuccessMessage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PaymentPageField">
+          <Key>
+            <PropertyRef Name="FieldID" />
+          </Key>
+          <Property Name="FieldID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PaymentPageID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentField" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Priviledge">
+          <Key>
+            <PropertyRef Name="PriviledgeID" />
+          </Key>
+          <Property Name="PriviledgeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PriviledgeType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ProductField">
+          <Key>
+            <PropertyRef Name="ProductFieldID" />
+          </Key>
+          <Property Name="ProductFieldID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FieldName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ProductPageID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MerchantRef" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TransactionStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ProductName">
+          <Key>
+            <PropertyRef Name="ProductNameID" />
+          </Key>
+          <Property Name="ProductNameID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ProductPageID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ProductPage">
+          <Key>
+            <PropertyRef Name="ProductPageID" />
+          </Key>
+          <Property Name="ProductPageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MerchantID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ProductDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RedirectLink" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CustomLink" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PageName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SuccessMessage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ProductPrice">
+          <Key>
+            <PropertyRef Name="ProductPriceID" />
+          </Key>
+          <Property Name="ProductPriceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Price" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ProductPageID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Settlement">
+          <Key>
+            <PropertyRef Name="SettlementID" />
+          </Key>
+          <Property Name="SettlementID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MerchantID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SettlementRef" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TeamMember">
+          <Key>
+            <PropertyRef Name="TeamID" />
+          </Key>
+          <Property Name="TeamID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MerchantID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Role" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LastLogin" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TestTransaction">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MerchantID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MerchantTransactionRef" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Purpose" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ResponseCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TransactionStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IpAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TimeStamp" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Token">
+          <Key>
+            <PropertyRef Name="TokenID" />
+          </Key>
+          <Property Name="TokenID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MerchantID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TokenNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CardType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MaskedCardNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ExpiryDate" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="URL">
+          <Key>
+            <PropertyRef Name="UriID" />
+          </Key>
+          <Property Name="UriID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MerchantID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="WebhookURL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CallBackURL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Payout">
+          <Key>
+            <PropertyRef Name="PayoutID" />
+          </Key>
+          <Property Name="PayoutID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MerchantID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RequestCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TotalTransactions" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SettlementDate" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="BusinessProfile">
+          <Key>
+            <PropertyRef Name="BusinessProfileID" />
+          </Key>
+          <Property Name="BusinessProfileID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MerchantID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BusinessName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PhysicalAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="WebsiteLink" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FacebookLink" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TwitterLink" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="InstagramLink" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="YoutubeLink" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CompanyProfile">
+          <Key>
+            <PropertyRef Name="CompanyProfileID" />
+          </Key>
+          <Property Name="CompanyProfileID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MerchantID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RcNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DocName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SettlementDetail">
+          <Key>
+            <PropertyRef Name="SettlementDetailID" />
+          </Key>
+          <Property Name="SettlementDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MerchantID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AccountName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AccountNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BankName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SortCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MerchantID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DateAdded" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Plan">
+          <Key>
+            <PropertyRef Name="PlanID" />
+          </Key>
+          <Property Name="PlanID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MerchantID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PlanCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PlanName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PlanDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PlanAmount" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Interval" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="InvioiceLimit" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Subscription">
+          <Key>
+            <PropertyRef Name="SubscriptionID" />
+          </Key>
+          <Property Name="SubscriptionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MerchantID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PlanID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+          </Key>
+          <Property Name="InvoiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MerchantID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="InvoiceCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RequestedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="isAttachmentAllowed" Type="Boolean" />
+          <Property Name="DateRequested" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ApiKey">
+          <Key>
+            <PropertyRef Name="KeyID" />
+          </Key>
+          <Property Name="KeyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MerchantID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TestPrivateKey" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TestPublicKey" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LivePrivateKey" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LivePublicKey" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="isLiveMode" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="RoleDescription" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Bank">
+          <Key>
+            <PropertyRef Name="BankID" />
+          </Key>
+          <Property Name="BankID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BankName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SortCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Registration">
+          <Key>
+            <PropertyRef Name="RegistrationID" />
+          </Key>
+          <Property Name="RegistrationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BusinessName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CashBoxModelStoreContainer" CdmEntityContainer="CashBoxEntities">
+          <EntitySetMapping Name="CardBlacklists">
+            <EntityTypeMapping TypeName="CashBoxModel.CardBlacklist">
+              <MappingFragment StoreEntitySet="CardBlacklist">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="IssuingCountry" ColumnName="IssuingCountry" />
+                <ScalarProperty Name="CardType" ColumnName="CardType" />
+                <ScalarProperty Name="LastFourDigits" ColumnName="LastFourDigits" />
+                <ScalarProperty Name="FirstSixDigits" ColumnName="FirstSixDigits" />
+                <ScalarProperty Name="CardIssuerer" ColumnName="CardIssuerer" />
+                <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+                <ScalarProperty Name="CardBlacklistID" ColumnName="CardBlacklistID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvoiceAttachments">
+            <EntityTypeMapping TypeName="CashBoxModel.InvoiceAttachment">
+              <MappingFragment StoreEntitySet="InvoiceAttachment">
+                <ScalarProperty Name="DocName" ColumnName="DocName" />
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+                <ScalarProperty Name="AttachmentID" ColumnName="AttachmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IpBlacklistings">
+            <EntityTypeMapping TypeName="CashBoxModel.IpBlacklisting">
+              <MappingFragment StoreEntitySet="IpBlacklisting">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+                <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+                <ScalarProperty Name="IpBlacklistingID" ColumnName="IpBlacklistingID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LiveTransactions">
+            <EntityTypeMapping TypeName="CashBoxModel.LiveTransaction">
+              <MappingFragment StoreEntitySet="LiveTransactions">
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+                <ScalarProperty Name="TransactionStatus" ColumnName="TransactionStatus" />
+                <ScalarProperty Name="ResponseCode" ColumnName="ResponseCode" />
+                <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="CardProcessorTransactionRef" ColumnName="CardProcessorTransactionRef" />
+                <ScalarProperty Name="MerchantTransactionRef" ColumnName="MerchantTransactionRef" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MerchantLogoes">
+            <EntityTypeMapping TypeName="CashBoxModel.MerchantLogo">
+              <MappingFragment StoreEntitySet="MerchantLogo">
+                <ScalarProperty Name="LogoName" ColumnName="LogoName" />
+                <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+                <ScalarProperty Name="MerchantLogoID" ColumnName="MerchantLogoID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MerchantStatus">
+            <EntityTypeMapping TypeName="CashBoxModel.MerchantStatu">
+              <MappingFragment StoreEntitySet="MerchantStatus">
+                <ScalarProperty Name="isLiveMode" ColumnName="isLiveMode" />
+                <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+                <ScalarProperty Name="MerchantStatusID" ColumnName="MerchantStatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentPages">
+            <EntityTypeMapping TypeName="CashBoxModel.PaymentPage">
+              <MappingFragment StoreEntitySet="PaymentPage">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="SuccessMessage" ColumnName="SuccessMessage" />
+                <ScalarProperty Name="CustomLink" ColumnName="CustomLink" />
+                <ScalarProperty Name="RedirectLink" ColumnName="RedirectLink" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="PageDescription" ColumnName="PageDescription" />
+                <ScalarProperty Name="PageName" ColumnName="PageName" />
+                <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+                <ScalarProperty Name="PaymentmentPageID" ColumnName="PaymentmentPageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentPageFields">
+            <EntityTypeMapping TypeName="CashBoxModel.PaymentPageField">
+              <MappingFragment StoreEntitySet="PaymentPageFields">
+                <ScalarProperty Name="PaymentField" ColumnName="PaymentField" />
+                <ScalarProperty Name="PaymentPageID" ColumnName="PaymentPageID" />
+                <ScalarProperty Name="FieldID" ColumnName="FieldID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Priviledges">
+            <EntityTypeMapping TypeName="CashBoxModel.Priviledge">
+              <MappingFragment StoreEntitySet="Priviledge">
+                <ScalarProperty Name="PriviledgeType" ColumnName="PriviledgeType" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="PriviledgeID" ColumnName="PriviledgeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductFields">
+            <EntityTypeMapping TypeName="CashBoxModel.ProductField">
+              <MappingFragment StoreEntitySet="ProductFields">
+                <ScalarProperty Name="TransactionStatus" ColumnName="TransactionStatus" />
+                <ScalarProperty Name="MerchantRef" ColumnName="MerchantRef" />
+                <ScalarProperty Name="ProductPageID" ColumnName="ProductPageID" />
+                <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+                <ScalarProperty Name="ProductFieldID" ColumnName="ProductFieldID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductNames">
+            <EntityTypeMapping TypeName="CashBoxModel.ProductName">
+              <MappingFragment StoreEntitySet="ProductName">
+                <ScalarProperty Name="ProductPageID" ColumnName="ProductPageID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProductNameID" ColumnName="ProductNameID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductPages">
+            <EntityTypeMapping TypeName="CashBoxModel.ProductPage">
+              <MappingFragment StoreEntitySet="ProductPage">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="SuccessMessage" ColumnName="SuccessMessage" />
+                <ScalarProperty Name="PageName" ColumnName="PageName" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="CustomLink" ColumnName="CustomLink" />
+                <ScalarProperty Name="RedirectLink" ColumnName="RedirectLink" />
+                <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
+                <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+                <ScalarProperty Name="ProductPageID" ColumnName="ProductPageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductPrices">
+            <EntityTypeMapping TypeName="CashBoxModel.ProductPrice">
+              <MappingFragment StoreEntitySet="ProductPrice">
+                <ScalarProperty Name="ProductPageID" ColumnName="ProductPageID" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ProductPriceID" ColumnName="ProductPriceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Settlements">
+            <EntityTypeMapping TypeName="CashBoxModel.Settlement">
+              <MappingFragment StoreEntitySet="Settlement">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="SettlementRef" ColumnName="SettlementRef" />
+                <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+                <ScalarProperty Name="SettlementID" ColumnName="SettlementID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TeamMembers">
+            <EntityTypeMapping TypeName="CashBoxModel.TeamMember">
+              <MappingFragment StoreEntitySet="TeamMember">
+                <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TestTransactions">
+            <EntityTypeMapping TypeName="CashBoxModel.TestTransaction">
+              <MappingFragment StoreEntitySet="TestTransactions">
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+                <ScalarProperty Name="TransactionStatus" ColumnName="TransactionStatus" />
+                <ScalarProperty Name="ResponseCode" ColumnName="ResponseCode" />
+                <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="MerchantTransactionRef" ColumnName="MerchantTransactionRef" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tokens">
+            <EntityTypeMapping TypeName="CashBoxModel.Token">
+              <MappingFragment StoreEntitySet="Token">
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="MaskedCardNo" ColumnName="MaskedCardNo" />
+                <ScalarProperty Name="CardType" ColumnName="CardType" />
+                <ScalarProperty Name="TokenNo" ColumnName="TokenNo" />
+                <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+                <ScalarProperty Name="TokenID" ColumnName="TokenID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="URLs">
+            <EntityTypeMapping TypeName="CashBoxModel.URL">
+              <MappingFragment StoreEntitySet="URL">
+                <ScalarProperty Name="CallBackURL" ColumnName="CallBackURL" />
+                <ScalarProperty Name="WebhookURL" ColumnName="WebhookURL" />
+                <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+                <ScalarProperty Name="UriID" ColumnName="UriID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payouts">
+            <EntityTypeMapping TypeName="CashBoxModel.Payout">
+              <MappingFragment StoreEntitySet="Payout">
+                <ScalarProperty Name="SettlementDate" ColumnName="SettlementDate" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="TotalTransactions" ColumnName="TotalTransactions" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RequestCode" ColumnName="RequestCode" />
+                <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+                <ScalarProperty Name="PayoutID" ColumnName="PayoutID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BusinessProfiles">
+            <EntityTypeMapping TypeName="CashBoxModel.BusinessProfile">
+              <MappingFragment StoreEntitySet="BusinessProfile">
+                <ScalarProperty Name="YoutubeLink" ColumnName="YoutubeLink" />
+                <ScalarProperty Name="InstagramLink" ColumnName="InstagramLink" />
+                <ScalarProperty Name="TwitterLink" ColumnName="TwitterLink" />
+                <ScalarProperty Name="FacebookLink" ColumnName="FacebookLink" />
+                <ScalarProperty Name="WebsiteLink" ColumnName="WebsiteLink" />
+                <ScalarProperty Name="PhysicalAddress" ColumnName="PhysicalAddress" />
+                <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
+                <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+                <ScalarProperty Name="BusinessProfileID" ColumnName="BusinessProfileID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompanyProfiles">
+            <EntityTypeMapping TypeName="CashBoxModel.CompanyProfile">
+              <MappingFragment StoreEntitySet="CompanyProfile">
+                <ScalarProperty Name="DocName" ColumnName="DocName" />
+                <ScalarProperty Name="RcNo" ColumnName="RcNo" />
+                <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+                <ScalarProperty Name="CompanyProfileID" ColumnName="CompanyProfileID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SettlementDetails">
+            <EntityTypeMapping TypeName="CashBoxModel.SettlementDetail">
+              <MappingFragment StoreEntitySet="SettlementDetail">
+                <ScalarProperty Name="SortCode" ColumnName="SortCode" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+                <ScalarProperty Name="SettlementDetailID" ColumnName="SettlementDetailID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="CashBoxModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+                <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Plans">
+            <EntityTypeMapping TypeName="CashBoxModel.Plan">
+              <MappingFragment StoreEntitySet="Plan">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="InvioiceLimit" ColumnName="InvioiceLimit" />
+                <ScalarProperty Name="Interval" ColumnName="Interval" />
+                <ScalarProperty Name="PlanAmount" ColumnName="PlanAmount" />
+                <ScalarProperty Name="PlanDescription" ColumnName="PlanDescription" />
+                <ScalarProperty Name="PlanName" ColumnName="PlanName" />
+                <ScalarProperty Name="PlanCode" ColumnName="PlanCode" />
+                <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+                <ScalarProperty Name="PlanID" ColumnName="PlanID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subscriptions">
+            <EntityTypeMapping TypeName="CashBoxModel.Subscription">
+              <MappingFragment StoreEntitySet="Subscription">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="CustomerEmail" ColumnName="CustomerEmail" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="PlanID" ColumnName="PlanID" />
+                <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+                <ScalarProperty Name="SubscriptionID" ColumnName="SubscriptionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoices">
+            <EntityTypeMapping TypeName="CashBoxModel.Invoice">
+              <MappingFragment StoreEntitySet="Invoice">
+                <ScalarProperty Name="DateRequested" ColumnName="DateRequested" />
+                <ScalarProperty Name="isAttachmentAllowed" ColumnName="isAttachmentAllowed" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="RequestedBy" ColumnName="RequestedBy" />
+                <ScalarProperty Name="CustomerEmail" ColumnName="CustomerEmail" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="InvoiceCode" ColumnName="InvoiceCode" />
+                <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApiKeys">
+            <EntityTypeMapping TypeName="CashBoxModel.ApiKey">
+              <MappingFragment StoreEntitySet="ApiKey">
+                <ScalarProperty Name="isLiveMode" ColumnName="isLiveMode" />
+                <ScalarProperty Name="LivePublicKey" ColumnName="LivePublicKey" />
+                <ScalarProperty Name="LivePrivateKey" ColumnName="LivePrivateKey" />
+                <ScalarProperty Name="TestPublicKey" ColumnName="TestPublicKey" />
+                <ScalarProperty Name="TestPrivateKey" ColumnName="TestPrivateKey" />
+                <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+                <ScalarProperty Name="KeyID" ColumnName="KeyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="CashBoxModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Banks">
+            <EntityTypeMapping TypeName="CashBoxModel.Bank">
+              <MappingFragment StoreEntitySet="Banks">
+                <ScalarProperty Name="SortCode" ColumnName="SortCode" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="BankID" ColumnName="BankID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Registrations">
+            <EntityTypeMapping TypeName="CashBoxModel.Registration">
+              <MappingFragment StoreEntitySet="Registration">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
+                <ScalarProperty Name="RegistrationID" ColumnName="RegistrationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,202 @@
+﻿@model IEnumerable<CashBox.Models.Team>
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/dataTables.bootstrap.css" rel="stylesheet" />
+
+
+<div class="col-sm-8 app-main-section">
+    <div class="row">
+        <div class="tile tile-blue kudi-header">
+            <h2 class="title"><img src="/Theme/images/apps/my-payments.png" />Your Account Members</h2>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <button type="button" id="TeamInvite" class="btn btn-info pull-right">Invite New User</button>
+        </div>
+    </div>
+    <br />
+    <div class="margtop15">
+
+
+        <div id="TeamModal" class="modal fade" tabindex="-1" role="dialog" style="overflow:scroll">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" style="text-align:center">Invite New Users</h4>
+                        <hr />
+                        <p>Enter the email addresses of the users you'd like to invite, and choose the role they should have.</p>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="box-body">
+                                <div class="form-group">
+
+                                    <div class="col-sm-12">
+                                        <input type="url" class="form-control" id="Email" name="Email" placeholder="team@email.com" />
+                                    </div>
+                                </div>
+                                <br />
+                                <hr />
+                                @foreach (var content in Model)
+                                {
+                                    <div class="row" id="@content.RoleID">
+                                        <div class="col-md-2">
+                                            <input type="radio" name="options" id="@content.RoleType.Replace(" ", string.Empty)" autocomplete="off" value="@content.RoleType" checked>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <d>@content.RoleType</d>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <d>@content.RoleDescription</d>
+                                        </div>
+                                    </div>
+                                    <script>
+                                document.getElementById("@content.RoleType.Replace(" ",string.Empty)").onclick = function () {
+
+                                    document.getElementById("SendInvitation").onclick = function () {
+
+                                        document.getElementById("SendInvitation").innerHTML = "Sending Invitation...";
+                                        document.getElementById("SendInvitation").disabled = true;
+
+                                        $.ajax({
+                                            url: '/Settings/TeamInvite',
+                                            type: "POST",
+                                            dataType: "json",
+                                            contentType: "application/json; charset=utf-8",
+                                            data: JSON.stringify({
+                                                RoleType: $('#@content.RoleType.Replace(" ",string.Empty)').val(),
+                                                Email: $('#Email').val(),
+                                            }),
+                                            success: function (result) {
+                                                document.getElementById("SendInvitation").innerHTML = "Send Invitation";
+                                                document.getElementById("SendInvitation").disabled = false;
+                                                if (result == "Success") {
+
+                                                    swal({
+                                                        title: "Team Invitation",
+                                                        text: "Your invitation has been sent to your team",
+                                                        type: "success",
+                                                    });
+                                                }
+                                            },
+                                            error: function (result) {
+                                                swal({
+                                                    title: "Error",
+                                                    text: "Server Side Error, please check internet connection",
+                                                    type: "error"
+                                                });
+                                            }
+                                        })
+
+                                    }
+                                }
+                                    </script>
+                                    <hr />
+                                }
+
+
+                            </div>
+                            <!-- /.box-body -->
+                            <div class="box-footer">
+                                <button type="button" id="SendInvitation" class="btn btn-info pull-right"> Send Invitation</button>
+                            </div>
+                        </form>
+                        <div class="modal-footer">
+
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+        </div>
+
+
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <span id="transactOne" class="fa fa-plus-circle"></span> My Team Members
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
+
+                        <div>
+                            <div class="table-responsive my-payment">
+                                <table id="example2" class="table table-striped table-bordered">
+                                    <thead>
+                                    <thead>
+                                        <tr>
+                                            <th>UserName</th>
+                                            <th>Role</th>
+                                            <th>Last Login</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</div><!-- /.app-main-section -->
+<script src="~/Scripts/jquery-2.2.3.min.js"></script>
+
+<script src="~/Scripts/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/dataTables.bootstrap.min.js"></script>
+
+<script>
+
+
+    document.getElementById("TeamInvite").onclick = function () {
+
+        $('#TeamModal').modal('show');
+    }
+
+
+    $(function () {
+
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "ajax": {
+                "url": "/TeamMembers/GetTeamMembers",
+                "type": "GET",
+                "data": "json"
+            },
+            "order": [2, "desc"],
+            "columns": [
+                { "data": "User", "autoWidth": true },
+                { "data": "Role", "autoWidth": true },
+                { "data": "LastLogin", "autoWidth": true },
+                {
+                    "aTargets": [3],
+                    "data": "MemberID",
+                    "mRender": function (data) {
+                        return '<button type="button" id="' + data + '" onclick="Delete(' + data + ')" class="btn btn-primary" style="background-color:#452152;border-color:#452152">Delete Member <i class = "fa fa-trash"></i></button>';
+
+                    },
+                }
+            ]
+        });
+    });
+
+</script>

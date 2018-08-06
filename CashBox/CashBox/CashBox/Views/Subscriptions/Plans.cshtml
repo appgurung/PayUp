@@ -1,0 +1,248 @@
+﻿
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/dataTables.bootstrap.css" rel="stylesheet" />
+
+
+<div class="col-sm-8 app-main-section">
+    <div class="row">
+        <div class="tile tile-blue kudi-header">
+            <h2 class="title"><img src="/Theme/images/apps/my-payments.png" />Your Subscription Plans</h2>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <button type="button" id="PlanRequest" class="btn btn-info pull-right"> <i class="fa fa-refresh" aria-hidden="true"></i> Add New Plan</button>
+        </div>
+    </div>
+    <br />
+    <div class="margtop15">
+
+        <div id="PlanModal" class="modal fade" tabindex="-1" role="dialog" style="overflow:scroll">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" style="text-align:center">New Plan</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <form>
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="NameofPage" class="col-sm-4 control-label">Plan Name</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="PlanName" name="PlanName" placeholder=" Enter Plan Name">
+                                    </div>
+                                </div>
+                                <br />
+                                <hr />
+                                <div class="form-group">
+                                    <label for="PlanDescription" class="col-sm-4 control-label">Plan Description</label>
+
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="PlanDescription" name="PlanDescription" placeholder=" Enter Plan Description" required />
+                                    </div>
+                                </div>
+
+                                <br />
+                                <hr />
+                                <div class="form-group">
+                                    <label for="PlanAmount" class="col-sm-4 control-label">Plan Amount</label>
+
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Amount" name="Amount" placeholder=" Enter Plan Amount" required />
+                                    </div>
+                                </div>
+                                <br />
+                                <hr />
+                                <div class="form-group">
+                                    <label for="Interval" class="col-sm-4 control-label">Interval</label>
+
+                                    <div class="col-sm-8">
+                                        <div class="form-group">
+                                            <select id="Interval" name="Interval" class="form-control">
+                                                <option>Choose plan interval</option>
+                                                <option>Hourly</option>
+                                                <option>Daily</option>
+                                                <option>Weekly</option>
+                                                <option>Monthly</option>
+                                                <option>Yearly</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+
+                                <div class="form-group">
+                                    <label for="CustomLink" class="col-sm-4 control-label"> Invoice Limit </label>
+
+                                    <div class="col-sm-8">
+
+                                        <input type="url" class="form-control" id="InvoiceLimit" name="InvoiceLimit" placeholder=" Set limit (optional)" />
+                                    </div>
+                                </div>
+                                <br />
+                                <br/>
+                                <hr />
+
+                            </div>
+                            <!-- /.box-body -->
+                            <div class="box-footer">
+                                <button type="button" id="CreatePlan" class="btn btn-info pull-right">Create New Plan</button>
+                            </div>
+                        </form>
+                        <div class="modal-footer">
+
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+        </div>
+
+
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <span id="transactOne" class="fa fa-plus-circle"></span> My Plans
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
+
+                        <div>
+                            <div class="table-responsive my-payment">
+                                <table id="example2" class="table table-striped table-bordered">
+                                    <thead>
+                                    <thead>
+                                        <tr>
+                                            <th>Plan Code</th>
+                                            <th>Plan Name</th>
+                                            <th>Interval</th>
+                                            <th>Amount</th>
+                                            <th>Created On</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                            <span id="transactTwo" class="fa fa-plus-circle"></span> My Subscriptions
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                    <div class="panel-body">
+                        <div>
+                            <div class="table-responsive my-payment">
+                                <table id="example3" class="table table-striped table-bordered">
+                                    <thead>
+                                    <thead>
+                                        <tr>
+                                            <th>Plan Name</th>
+                                            <th>Customer Name</th>
+                                            <th>Customer Email</th>
+                                            <th>Interval</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div><!-- /.app-main-section -->
+<script src="~/Scripts/jquery-2.2.3.min.js"></script>
+
+<script src="~/Scripts/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/dataTables.bootstrap.min.js"></script>
+
+<script>
+
+    document.getElementById("PlanRequest").onclick = function () {
+
+        $('#PlanModal').modal('show');
+    }
+
+
+    $(function () {
+
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "ajax": {
+                "url": "/Subscriptions/GetPlans",
+                "type": "GET",
+                "data": "json"
+            },
+            "order": [3, "desc"],
+            "columns": [
+                { "data": "PlanCode", "autoWidth": true },
+                { "data": "PlanName", "autoWidth": true },
+                { "data": "Interval", "autoWidth": true },
+                { "data": "Amount", "autoWidth": true },
+                { "data": "CreatedOn", "autoWidth": true },
+                {
+                    "aTargets": [3],
+                    "data": "PlanID",
+                    "mRender": function (data) {
+                        return '<button type="button" id="' + data + '" onclick="Delete(' + data + ')" class="btn btn-primary" style="background-color:#452152;border-color:#452152">Delete Plan <i class = "fa fa-trash"></i></button>';
+
+                    },
+                }
+            ]
+        });
+    });
+
+
+
+    $('#example3').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": true,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "ajax": {
+            "url": "/Subscriptions/GetPlans",
+            "type": "GET",
+            "data": "json"
+        },
+        "order": [3, "desc"],
+        "columns": [
+            { "data": "PlanName", "autoWidth": true },
+            { "data": "CustomerName", "autoWidth": true },
+            { "data": "CustomerEmail", "autoWidth": true },
+            { "data": "Interval", "autoWidth": true },
+            { "data": "Status", "autoWidth": true },
+        ]
+    });
+
+</script>

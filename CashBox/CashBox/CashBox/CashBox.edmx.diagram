@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3186813a75ab4e54ab7174ca91faa17e" Name="Diagram1">
+        <EntityTypeShape EntityType="CashBoxModel.CardBlacklist" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CashBoxModel.InvoiceAttachment" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CashBoxModel.IpBlacklisting" Width="1.5" PointX="2.75" PointY="7.75" />
+        <EntityTypeShape EntityType="CashBoxModel.LiveTransaction" Width="1.5" PointX="7.75" PointY="3.75" />
+        <EntityTypeShape EntityType="CashBoxModel.MerchantLogo" Width="1.5" PointX="4.75" PointY="7.75" />
+        <EntityTypeShape EntityType="CashBoxModel.MerchantStatu" Width="1.5" PointX="6.75" PointY="8.75" />
+        <EntityTypeShape EntityType="CashBoxModel.PaymentPage" Width="1.5" PointX="8.75" PointY="8.75" />
+        <EntityTypeShape EntityType="CashBoxModel.PaymentPageField" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CashBoxModel.Priviledge" Width="1.5" PointX="9.75" PointY="3.75" />
+        <EntityTypeShape EntityType="CashBoxModel.ProductField" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="CashBoxModel.ProductName" Width="1.5" PointX="2.75" PointY="10.75" />
+        <EntityTypeShape EntityType="CashBoxModel.ProductPage" Width="1.5" PointX="10.75" PointY="6.75" />
+        <EntityTypeShape EntityType="CashBoxModel.ProductPrice" Width="1.5" PointX="10.75" PointY="10.75" />
+        <EntityTypeShape EntityType="CashBoxModel.Settlement" Width="1.5" PointX="11.75" PointY="3.75" />
+        <EntityTypeShape EntityType="CashBoxModel.TeamMember" Width="1.5" PointX="6.75" PointY="12.75" />
+        <EntityTypeShape EntityType="CashBoxModel.TestTransaction" Width="1.5" PointX="12.75" PointY="10.75" />
+        <EntityTypeShape EntityType="CashBoxModel.Token" Width="1.5" PointX="13.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CashBoxModel.URL" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="CashBoxModel.Payout" Width="1.5" PointX="9.375" PointY="13.75" />
+        <EntityTypeShape EntityType="CashBoxModel.BusinessProfile" Width="1.5" PointX="3.375" PointY="14.75" />
+        <EntityTypeShape EntityType="CashBoxModel.CompanyProfile" Width="1.5" PointX="14.375" PointY="3.75" />
+        <EntityTypeShape EntityType="CashBoxModel.SettlementDetail" Width="1.5" PointX="11.375" PointY="14.75" />
+        <EntityTypeShape EntityType="CashBoxModel.Customer" Width="1.5" PointX="13.375" PointY="14.75" />
+        <EntityTypeShape EntityType="CashBoxModel.Plan" Width="1.5" PointX="5.375" PointY="15.75" />
+        <EntityTypeShape EntityType="CashBoxModel.Subscription" Width="1.5" PointX="13.375" PointY="6.75" />
+        <EntityTypeShape EntityType="CashBoxModel.Invoice" Width="1.5" PointX="15.375" PointY="6.75" />
+        <EntityTypeShape EntityType="CashBoxModel.ApiKey" Width="1.5" PointX="15.375" PointY="10.75" />
+        <EntityTypeShape EntityType="CashBoxModel.Role" Width="1.5" PointX="3.375" PointY="4.75" />
+        <EntityTypeShape EntityType="CashBoxModel.Bank" Width="1.5" PointX="15.375" PointY="14.75" />
+        <EntityTypeShape EntityType="CashBoxModel.Registration" Width="1.5" PointX="0.75" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

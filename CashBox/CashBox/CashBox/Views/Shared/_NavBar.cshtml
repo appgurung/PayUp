@@ -1,0 +1,37 @@
+﻿
+<!--
+===============
+    Navbar
+===============
+-->
+
+<nav class="navbar navbar-toggleable-md navbar-inverse py-lg-0 custom-nav">
+    <div class="container w-xs-100">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#pyNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand">
+            <img src="~/cons/logo.svg" height="35" class="non-transparent" alt="">
+            <img src="~/img/white.png" height="60" class="transparent" alt="">
+        </a>
+        <div class="collapse navbar-collapse" id="pyNav">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index","Home")">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("PaymentGateway","Home")">PAYMENT GATEWAY</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Enterprise","Home")">ENTERPRISE</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Developers","Home")">DEVELOPERS</a>
+                </li>
+                <a class="nav-item">
+                    <a class="nav-link" href="http://www.medium.com/payconnect" target="_blank">SUPPORT</a>
+                </a>
+            </ul>
+        </div>
+    </div>
+</nav>

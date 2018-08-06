@@ -1,0 +1,601 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="~/js/ajaxModule.js"></script>
+    <meta charset="utf-8">
+    <title>PayUp</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link href="~/cons/icons.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,500,700|Raleway:400,400i,700,900" rel="stylesheet" />
+    <link rel="icon" href="~/img/favicon.png" type="image/png">
+  
+    <!--Sweet Alert CSS--->
+    <link href="@Url.Content("~/Content/sweetalert.css")" rel="stylesheet" />
+    <link href="~/css/theme-matte.css" rel="stylesheet" />
+
+    <style>
+        .loader {
+            border: 16px solid #f3f3f3; /* Light grey */
+            border-top: 16px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 1s linear infinite;
+            z-index: 9999;
+            position: absolute;
+            top: 100px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            margin-top: 140px;
+        }
+
+        @@keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="200" class="bg-faded">
+
+    @Html.Partial("_NavBar")
+
+    <!--
+    ===============
+        Header
+    ===============
+    -->
+    <header>
+        <div class="vid">
+
+        
+        <video autoplay loop style="position:relative" poster="@Url.Content("~/themes/PayUp/assets/img/placeholderimage.jpg")" width="1280" height="720">
+            <source src="@Url.Content("~/asset/video.webm")" type="video/webm">
+            <source src="@Url.Content("~/asset/video.mp4")" type="video/mp4">
+            <div id="intro-image">&nbsp;</div>
+        </video>
+            </div>
+        <div class="container" style="position:absolute;top:40px;left:40px">
+      
+            <div class="row pb-5 pb-sm-0">
+      
+
+                <div class="col-12 text-center pb-5 pb-sm-0" style="margin-top:30vh">
+                    <img src="~/img/landing.png" class="img-fluid mb-5">
+                    <p class="h3 text-white mb-1">Scale Your Business With PayUp</p>
+                    <h1 class="font-weight-light mb-5 text-white">An all-in-one Payment Partner.</h1>
+                    <article class="d-flex flex-column flex-sm-row flex-sm-wrap justify-content-center">
+                        <button type="button" class="btn btn-outline-warning btn-lg mt-4 mt-sm-0 mb-3 mb-sm-0 px-sm-5" data-toggle="modal" data-target="#loginForm">LOGIN</button>
+                        <button type="button" class="btn btn-outline-success btn-lg mt-3 mt-sm-0 ml-sm-4 px-sm-5" data-toggle="modal" data-target="#signupForm">CREATE NEW ACCOUNT</button>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--
+    ===========================
+        How PayUp Works
+    ===========================
+    -->
+    <section class="bg-faded" id="how">
+        <div class="container pb-5">
+            <div class="row py-5 justify-content-center">
+                <div class="col-12 col-sm-10 text-center">
+                    <h2 class="font-weight-bold">How it Works</h2>
+                    <hr class="my-3 bg-success pb-1" width="50">
+                    <p>
+                        Our machine learning algorithms process thousands of data points to assess borrowers credit profile and create tailored
+                        loan products - availing a unique loan amount to client and a unique repayment period without providing collateral.
+                    </p>
+                </div>
+            </div>
+            <div class="card-group mb-5 text-center">
+                <!--
+                    Step One
+                -->
+                <div class="col-12 col-sm-4 col-lg-3 card py-4">
+                    <img src="~/cons/request.svg" class="w-75 d-block mx-auto center mb-3" alt="Request Access">
+                    <h5>Request Access for App</h5>
+                    <p>Request access for PayConnect App</p>
+                </div>
+                <!--
+                    Step Two
+                -->
+                <div class="col-12 col-sm-4 col-lg-3 card py-4">
+                    <img src="~/cons/approved.svg" class="w-75 d-block mx-auto center mb-3 mt-4" alt="Review and Approval">
+                    <h5>Review and Approval</h5>
+                    <p class="truncate-me">
+                        Your bank alerts and other transactions that reflects on your phone are automatically analyzed and reviewed each time
+                        you receive an SMS/EMAIL Notification. An Approved Loan amount which you qualify for is highlighted on your dashboard.
+                    </p>
+                </div>
+                <!--
+                    Step Three
+                -->
+                <div class="col-12 col-sm-4 col-lg-3 card py-4">
+                    <img src="~/cons/payout.svg" class="w-75 d-block mx-auto center mb-3" style="margin-top:2rem" alt="Loan PAyout">
+                    <h5>Loan Payout</h5>
+                    <p class="truncate-me">
+                        Loan amount is disbursed instantly to your PayConnect Loan e-wallet at your request which you can withdraw from any
+                        ATM, use on any POS or transfer to any bank account of their choice in Nigeria.
+                    </p>
+                </div>
+                <!--
+                    Step Four
+                -->
+                <div class="col-12 col-sm-4 col-lg-3 card py-4">
+                    <img src="~/cons/repay.svg" class="w-75 d-block mx-auto center mb-3" style="margin-top:2rem" alt="Loan Repayment">
+                    <h5>Loan Repayment</h5>
+                    <p class="truncate-me">Repayment is effortless, as we automatically make deduction from your source account on the loan repayment due date.</p>
+                </div>
+            </div>
+        </div>
+        <!--
+            Documents Required
+        -->
+        <aside class="container-fluid bg-inverse text-white py-4 d-flex flex-column flex-sm-row">
+            <div class="w-25 w-xs-100 text-center text-sm-right pr-sm-5 my-auto">
+                <h1 class="display-2 m-0 text-success"><span class="icon-info"></span></h1>
+            </div>
+            <article class="w-75 w-xs-100">
+                <h5 class="font-weight-bold mt-2">Relevant Documents to accompany your application.</h5>
+                <p class="m-0 pb-2">Government Approved ID Card <br><em>(Drivers' License, International Passport, National ID Card, Permanent Voters' Card).</em></p>
+            </article>
+        </aside>
+    </section>
+    <!--
+    =========================
+        About PayUp
+    =========================
+    -->
+    <section class="bg-white" id="about">
+        <div class="container pb-4">
+            <div class="row py-3 py-sm-5">
+                <div class="col-12 text-center pt-5">
+                    <h2 class="font-weight-bold">Who we are</h2>
+                    <hr class="my-3 bg-success pb-1" width="50">
+                    <h4 class="d-inline text-inverse font-weight-bold"><span class="text-success">pay</span>connect</h4>
+                    <p class="text-wrap font-weight-normal d-inline m-0">
+                        is a Mobile Lending Marketplace Solution that matches<br> Lenders and Credit worthy Unbanked/Underbanked Borrowers.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <article class="col-12 col-sm-6 col-lg-4 pt-4 my-sm-auto">
+                    <img src="~/cons/arrow-right.svg" class="mb-3" width="40" alt="">
+                    <p>
+                        We use a proprietary algorithm that automatically aggregates client's transactions notification on their mobile phones,
+                        Bills payment, Call/SMS history and simultaneously analyses Income and spending patterns,then avails loan amount with
+                        tenure that uniquely suits each individual. The application process is easy and seamless.
+                    </p>
+                </article>
+                <div class="col-12 col-sm-6 col-lg-8 text-center text-sm-right my-auto">
+                    <img src="~/cons/calculate.svg" class="w-50 w-sm-100" alt="">
+                </div>
+            </div>
+            <div class="row py-5">
+                <article class="col-12 col-sm-6 col-lg-4 flex-sm-last text-sm-right my-auto">
+                    <img src="~/cons/arrow-left.svg" class="mb-3" width="40" alt="">
+                    <p>
+                        Loans on PayConnect do not require Collateral. Applicants receive loans amounts into their PayConnect E-wallet after
+                        approval, which they can withdraw from any ATM, Use on any POS or transfer to any bank account of their choice in
+                        Nigeria. Repayment is required after a stipulated tenure.
+                    </p>
+                </article>
+                <div class="col-12 col-sm-6 col-lg-8 my-auto">
+                    <img src="~/cons/loan.svg" class="w-50 w-sm-100" alt="">
+                </div>
+            </div>
+            <div class="row pb-5">
+                <article class="col-12 col-sm-6 col-lg-4 my-sm-auto">
+                    <img src="~/cons/arrow-right.svg" class="mb-3" width="40" alt="">
+                    <p>
+                        Our team has over 20 years of combined experience in banking, risk
+                        management and Information Technology. We are determined to tackle what we consider a critical issue of lending to
+                        Students, Small Businesses and Employees in conventional Banking Environment.
+                    </p>
+                </article>
+                <div class="col-12 col-sm-6 col-lg-8 text-center text-sm-right">
+                    <img src="~/cons/management.svg" class="w-50 w-sm-100" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr class="m-0">
+    <!--
+    ====================
+        Contact Us
+    ====================
+    -->
+    <section class="bg-success text-white" id="contact">
+        <div class="container py-5">
+            <div class="row align-items-center" style="min-height:50vh">
+                <div class="col-12 col-sm-5 text-center text-sm-left">
+                    <h1 class="display-1 d-inline-flex mb-4"><i class="icon-chat"></i></h1>
+                    <h1>Talk to us</h1>
+                    <p class="lead">Have a complaint, suggestion or compliment?</p>
+                </div>
+                <div class="col-12 col-sm-4 ml-lg-auto text-center">
+                    <a href="mailto:hello@payup.ng" class="custom-btn btn-5"><span>hello@payup.ng</span></a>
+                </div>
+            </div>
+            </div>
+    </section>
+ 
+    @Html.Partial("_Footer")
+
+    <!--
+    ==============
+        Modals
+    ==============
+    -->
+    <!-- SignUp  Form -->
+
+    <div id="signupForm" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="signupFormLabel" aria-hidden="true">
+        <div class="modal-dialog d-flex" role="document">
+            <div class="modal-content rounded-0 align-self-center w-100 px-sm-4">
+                <div class="modal-header pb-0 pt-4 justify-content-center border-bottom-0">
+                    <h4 class="modal-title text-success font-weight-bold" id="ftext">CREATE ACCOUNT</h4>
+                </div>
+                <div class="modal-body pt-0">
+                    <hr class="mt-1" width="50">
+                    <div class="loader" id="loader" style="display:none"></div>
+                    <form onsubmit="subForm()">
+                        <div class="form-group">
+                            <label class="col-form-label">Full Name</label>
+                            <input type="text" name="FullName" id="FullName" class="form-control form-control-lg">
+                            <p class="text-danger" id="estatus"></p>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label">Phone No.:</label>
+                            <input type="text" name="PhoneNo" id="PhoneNo" class="form-control form-control-lg">
+                            <p class="text-danger" id="estatus"></p>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label">Email Address</label>
+                            <input type="email" name="Email" id="RegEmail" class="form-control form-control-lg">
+                            <p class="text-danger" id="estatus"></p>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label">Password</label>
+                            <input type="password" name="Password" id="RegPassword" class="form-control form-control-lg">
+                            <p class="text-danger" id="estatus"></p>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label">Confirm Password</label>
+                            <input type="password" name="Password" id="ConfirmPassword" class="form-control form-control-lg">
+                            <p class="text-danger" id="estatus"></p>
+                        </div>
+
+                        <div class="form-group justify-content-between d-flex flex-wrap">
+                            <div id="status"></div>
+                            <button class="btn btn-warning btn-lg px-5" type="button" style="font-size:16px;border-radius:.3rem!important;color:black" id="SignUpButton">CREATE ACCOUNT</button>
+                            <button type="button" class="btn btn-secondary" style="border:none;font-size:16px;border-radius:0!important;padding:1rem" data-dismiss="modal">CLOSE</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--
+
+        Login Form
+
+    -->
+    <div id="loginForm" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="signupFormLabel" aria-hidden="true">
+        <div class="modal-dialog d-flex" role="document">
+            <div class="modal-content rounded-0 align-self-center w-100 px-sm-4">
+                <div class="modal-header pb-0 pt-4 justify-content-center border-bottom-0">
+                    <h4 class="modal-title text-success font-weight-bold" id="ftext">Welcome Back!</h4>
+                </div>
+                <div class="modal-body pt-0">
+                    <hr class="mt-1" width="50">
+                    <div class="loader" id="loader" style="display:none"></div>
+                    <form>
+
+
+                        <div class="form-group">
+                            <label class="col-form-label">Email Address</label>
+                            <input type="email" name="Email" id="Email" class="form-control form-control-lg">
+                            <p class="text-danger" id="estatus"></p>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label">Password</label>
+                            <input type="password" name="Password" id="Password" class="form-control form-control-lg">
+                            <p class="text-danger" id="estatus"></p>
+                        </div>
+
+                        <div class="form-group justify-content-between d-flex flex-wrap">
+                            <div id="status"></div>
+                            <button class="btn btn-warning btn-lg px-5" type="button" style="font-size:16px;border-radius:.3rem!important;color:black" id="LoginButton">Login</button>
+                            <button type="button" id="ForgotPassword" class="btn btn-success btn-lg" style="font-size:16px;border-radius:.3rem!important;color:black" data-toggle="modal" data-target="#passwordRecoveryForm">Forgot Password</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--
+        Forgot Password
+    -->
+
+    <div id="passwordRecoveryForm" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="signupFormLabel" aria-hidden="true">
+        <div class="modal-dialog d-flex" role="document">
+            <div class="modal-content rounded-0 align-self-center w-100 px-sm-4">
+                <div class="modal-header pb-0 pt-4 justify-content-center border-bottom-0">
+                    <h4 class="modal-title text-success font-weight-bold" id="ftext">Password Recovery</h4>
+                </div>
+                <div class="modal-body pt-0">
+                    <hr class="mt-1" width="50">
+                    <form onsubmit="subForm()">
+
+
+                        <div class="form-group">
+                            <label class="col-form-label">Email Address</label>
+                            <input type="email" name="Email" id="Email" class="form-control form-control-lg">
+                            <p class="text-danger" id="estatus"></p>
+                        </div>
+
+                        <div class="form-group justify-content-between d-flex flex-wrap">
+                            <div id="status"></div>
+                            <button class="btn btn-warning btn-lg px-5" type="button" style="font-size:16px;border-radius:.3rem!important;color:black" id="signupBtn">Send Recovery Mail</button>
+                          
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--
+        Scripts
+    -->
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/natter/jquery.stateLga.js"></script>
+    <script src="~/natter/jquery.ucfirst.js"></script>
+    
+    <!--Sweet Alert JS-->
+    <script src="@Url.Content("~/Scripts/sweetalert.js")"></script>
+    <script>
+        $(document).ready(function () {
+            document.getElementById("LoginButton").onclick = function () {
+                $("#loader").css({ "display": "block" });
+                document.getElementById("LoginButton").innerText = "Logging in.."
+                $("#ForgotPassword").css({ "display": "none" });
+                document.getElementById("LoginButton").disabled = true;
+
+                $.ajax({
+                    url: '/Account/LoginVerification',
+                    type: "POST",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify({
+                        UserIdentity: $('#Email').val(),
+                        Password: $('#Password').val(),
+                    }),
+                    success: function (result) {
+
+                        if (result.ResponseCode === 00) {
+
+                            swal({
+                                title: "Verification Successful",
+                                text: result.Message,
+                                type: "success",
+                                confirmButtonText: "Continue to Dashboard"
+                            },
+                                function (isConfirm) {
+                                    if (isConfirm) {
+                                        window.location.href = "/Merchant/Dashboard";
+                                    }
+                                });
+
+                        }
+                        else if (result.ResponseCode === 01) {
+                            $("#loader").css({ "display": "none" });
+                            document.getElementById("LoginButton").innerText = "Login"
+                            $("#ForgotPassword").css({ "display": "block" });
+                            document.getElementById("LoginButton").disabled = false
+
+                            swal({
+                                title: "Verification Failed",
+                                text: "Incorrect password",
+                                type: "error",
+                            });
+                        }
+
+                        else if (result.ResponseCode === 04) {
+                            $("#loader").css({ "display": "none" });
+                            document.getElementById("LoginButton").innerText = "Login"
+                            $("#ForgotPassword").css({ "display": "block" });
+                            document.getElementById("LoginButton").disabled = false
+
+                            swal({
+                                title: "Verification Failed",
+                                text: "Incorrect email address",
+                                type: "error",
+                            });
+                        }
+                        else if (result.ResponseCode === 05) {
+                            $("#loader").css({ "display": "none" });
+                            document.getElementById("LoginButton").innerText = "Login"
+                            $("#ForgotPassword").css({ "display": "block" });
+                            document.getElementById("LoginButton").disabled = false
+
+                            swal({
+                                title: "Verification Failed",
+                                text: "Incorrect phone number",
+                                type: "error",
+                            });
+                        }
+                    },
+                    error: function (result) {
+                        $("#loader").css({ "display": "none" });
+                        document.getElementById("LoginButton").innerText = "Login"
+                        $("#ForgotPassword").css({ "display": "block" });
+                        document.getElementById("LoginButton").disabled = false
+                        swal({
+                            title: "Error",
+                            text: "Client Side Error, please check internet connection",
+                            type: "error"
+                        });
+                    }
+                })
+            }
+        });
+    </script>
+
+
+    <script>
+            $(document).ready(function () {
+                document.getElementById("SignUpButton").onclick = function () {
+                    if (document.getElementById("Password").value != document.getElementById("ConfirmPassword").value) {
+
+                        document.getElementById("ErrorDisplay").innerHTML = "Password does not match";
+
+                        return false;
+
+                    }
+
+                    $("#loader").css({ "display": "block" });
+                    document.getElementById("SignUpButton").innerHTML = "Please Wait";
+                    document.getElementById("ErrorDisplay").innerHTML = "";
+                    document.getElementById("SignUpButton").disabled = true;
+
+                    $.ajax({
+
+                        url: '/Account/CreateAccount',
+                        type: "POST",
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify({
+                            FullName: $('#FullName').val(),
+                            Email: $('#RegEmail').val(),
+                            PhoneNo: $('#PhoneNo').val(),
+                            Password: $('#RegPassword').val(),
+                            ConfirmPassword: $('#ConfirmPassword').val(),
+                        }),
+                        success: function (result) {
+
+                            if (result.ResponseCode === 00) {
+                                swal({
+                                    title: "Account Successfully Created",
+                                    text: "Thanks for signing up, click button below to proceed to dashboard",
+                                    type: "success",
+                                    confirmButtonText: "Continue to Dashboard"
+                                },
+                                    function (isConfirm) {
+                                        if (isConfirm) {
+                                            window.location.href = "/Account/Login";
+                                        }
+                                    });
+
+                            }
+
+                            else if (result.ResponseCode === 04) {
+                                $("#loader").css({ "display": "none" });
+                                document.getElementById("SignUpButton").innerHTML = "Create Account";
+
+                                document.getElementById("SignUpButton").disabled = false;
+                                swal({
+                                    title: "Password Problem",
+                                    text: result.Message,
+                                    type: "warning",
+                                });
+                            }
+                            else if (result.ResponseCode === 02) {
+                                $("#loader").css({ "display": "none" });
+                                document.getElementById("SignUpButton").innerHTML = "Create Account";
+
+                                document.getElementById("SignUpButton").disabled = false;
+
+                                swal({
+                                    title: "Password Problem",
+                                    text: result.Message,
+                                    type: "warning",
+                                });
+                            }
+                            else if (result.ResponseCode == 03) {
+                                $("#loader").css({ "display": "none" });
+                                document.getElementById("SignUpButton").innerHTML = "Create Account";
+
+                                document.getElementById("SignUpButton").disabled = false;
+                                swal({
+                                    title: "Password Problem",
+                                    text: result.Message,
+                                    type: "warning",
+                                });
+                            }
+
+                            else if (result.ResponseCode == 01) {
+                                $("#loader").css({ "display": "none" });
+                                document.getElementById("SignUpButton").innerHTML = "Create Account";
+
+                                document.getElementById("SignUpButton").disabled = false;
+
+                                swal({
+                                    title: "Provided E-Mail Already Exist",
+                                    text: result.Message,
+                                    type: "warning",
+                                    showCancelButton: true,
+                                    confirmButtonColor: "#DD6B55",
+                                    confirmButtonText: "Login to Dashboard",
+                                    closeOnConfirm: false
+                                },
+                                    function () {
+                                        window.location.href = "/Account/Login";
+                                    });
+                            }
+
+                            else if (result.ResponseCode == 08) {
+                                $("#loader").css({ "display": "none" });
+                                document.getElementById("LoginButton").innerText = "Login to Dashboard"
+
+                                document.getElementById("LoginButton").disabled = false
+
+                                swal({
+                                    title: "Password Error",
+                                    text: result.Message,
+                                    type: "error",
+                                });
+                            }
+                        },
+                        error: function (result) {
+                            $("#loader").css({ "display": "none" });
+                            document.getElementById("SignUpButton").innerHTML = "Create Account";
+
+                            document.getElementById("SignUpButton").disabled = false;
+                            swal({
+                                title: "Error",
+                                text: "Client Side Error, please check internet connection",
+                                type: "error"
+                            });
+                        }
+                    })
+                }
+        });
+
+
+            document.getElementById("ForgotPassword").onclick = function ()
+            {
+                $('#loginForm').modal('hide');
+            }
+    </script>
+</body>
+</html>

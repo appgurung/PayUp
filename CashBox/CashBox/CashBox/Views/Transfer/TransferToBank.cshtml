@@ -1,0 +1,144 @@
+﻿@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+                <div class="col-sm-8 app-main-section">
+                    <div class="row">
+                        <div class="tile tile-blue kudi-header">
+                            <h2 class="title"><img src="../Theme/images/apps/my-payments.png" /> Transfer To Bank</h2>
+                        </div>
+                    </div>
+                    <div class="margtop15">
+
+
+
+
+                        <script src="../bundles/jqueryc061?v=FVs3ACwOLIVInrAl5sdzR2jrCDmVOWFbZMY6g6Q0ulE1"></script>
+
+                        <script src="../bundles/jqueryval3656?v=hEGG8cMxk9p0ncdRUOJ-CnKN7NezhnPnWIvn6REucZo1"></script>
+
+
+                        <form action="https://www.kudikonnect.com/Transfer/ConfirmAnonymousTransfer" method="post">
+                            <input name="__RequestVerificationToken" type="hidden" value="1J1_6cf4b-nT2xlqIKgwmQTmUd8_4-fe6pbHvqdk6ks-hx6GDQuD_JzxNEE1LvuKMN3biW-As2b-TjW56wK4gU1U8XdW5rdoBvHdMuQEiPM1" />    <div class="form-horizontal">
+                                <h4>Beneficiary</h4>
+                                <hr />
+
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="BeneficiaryBankCode">Beneficiary Bank</label>
+                                    <div class="col-md-10">
+                                        <select class="form-control" id="BeneficiaryBankCode" name="BeneficiaryBankCode">
+                                            <option value="070002"> Fortis Microfinance Bank</option>
+                                            <option value="070006"> Covenant</option>
+                                            <option value="090001"> ASOSavings     </option>
+                                            <option value="090003"> JubileeLife</option>
+                                            <option value="090004"> Parralex</option>
+                                            <option value="090005"> Trustbond</option>
+                                            <option value="100001"> FET</option>
+                                            <option value="100002"> Pagatech</option>
+                                            <option value="100003"> Parkway-ReadyCash</option>
+                                            <option value="100004"> Paycom</option>
+                                            <option value="100005"> Cellulant</option>
+                                            <option value="100006"> eTranzact</option>
+                                            <option value="100007"> StanbicMobileMoney</option>
+                                            <option value="100008"> EcoMobile</option>
+                                            <option value="100009"> GTMobile</option>
+                                            <option value="100010"> TeasyMobile</option>
+                                            <option value="100011"> Mkudi</option>
+                                            <option value="100012"> VTNetworks</option>
+                                            <option value="100013"> AccessMobile</option>
+                                            <option value="100014"> FBNMobile</option>
+                                            <option value="100015"> ChamsMobile</option>
+                                            <option value="100016"> FortisMobile</option>
+                                            <option value="100017"> Hedonmark</option>
+                                            <option value="100018"> ZenithMobile</option>
+                                            <option value="100019"> Fidelity Mobile</option>
+                                            <option value="100020"> MoneyBox</option>
+                                            <option value="100021"> Eartholeum</option>
+                                            <option value="400001"> FSDH</option>
+                                            <option value="999999"> NIP Virtual Bank</option>
+                                        </select>
+                                        <span class="field-validation-valid text-danger" data-valmsg-for="BeneficiaryBankCode" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="BeneficiaryAccountNumber">Account Number</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control text-box single-line" data-val="true" data-val-required="The Account Number field is required." id="BeneficiaryAccountNumber" name="BeneficiaryAccountNumber" type="text" value="" />
+                                        <span class="field-validation-valid text-danger" data-valmsg-for="BeneficiaryAccountNumber" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="BeneficiaryName">Beneficiary Name</label>
+                                    <div class="col-md-10">
+                                        <div id="ben_name"></div>
+                                        <input class="form-control text-box single-line" data-val="true" data-val-maxlength="The beneficiary name is not valid" data-val-maxlength-max="200" data-val-minlength="The beneficiary name is not valid" data-val-minlength-min="5" data-val-required="The Beneficiary Name field is required." id="BeneficiaryName" name="BeneficiaryName" type="text" value="" />
+                                        <span class="field-validation-valid text-danger" data-valmsg-for="BeneficiaryName" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="Amount">Amount</label>
+                                    <div class="col-md-10">
+                                        <div id="ben_name"></div>
+                                        <input class="form-control text-box single-line" data-val="true" data-val-number="The field Amount must be a number." data-val-required="The Amount field is required." id="Amount" name="Amount" type="text" value="" />
+                                        <span class="field-validation-valid text-danger" data-valmsg-for="Amount" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" id="add_beneficiary" value="Submit" class="btn btn-default radius-20" />
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+
+                        <script type="text/javascript">
+
+    //$(document).ready(function () {
+    //    $("#add_beneficiary").hide();
+    //    $("#add_beneficiary").prop('disabled', true);
+    //});
+    $("#BeneficiaryAccountNumber").on('input', function (e) {
+        var value = $(this).val();
+        if (value.length == 10) {
+            $("#BeneficiaryName").val('Fetching name, please wait...');
+            var url = "/Transfer/GetBeneficiaryName";
+            var cbnCode = $('#BeneficiaryBankCode').val();
+            var accountNumber = $('#BeneficiaryAccountNumber').val();
+            $.ajax({
+                url: url,
+                data: { bankCode: cbnCode, accountNumber: accountNumber },
+                cache: false,
+                type: "POST",
+                beforeSend: function(){
+                    $("#ben_name").html("<img src='../Content/ajax_loader.gif' width='20px' alt='Fetching name...'>");
+                },
+                complete: function(){
+                    $("#ben_name").html("");
+                },
+                success: function (data) {
+
+                    $("#BeneficiaryName").val(data);
+                    //$("#BeneficiaryName").focus();;
+                    //$("#add_beneficiary").show();
+                    //$("#add_beneficiary").prop('disabled', false);
+                    //alert(data);
+                },
+                error: function (reponse) {
+                    alert("error : " + reponse);
+                    $("#BeneficiaryName").val('');
+                }
+            });
+        }
+    });
+                        </script>
+
+
+                    </div>
+                </div><!-- /.app-main-section -->

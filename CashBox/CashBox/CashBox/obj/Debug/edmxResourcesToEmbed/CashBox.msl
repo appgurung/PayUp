@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CashBoxModelStoreContainer" CdmEntityContainer="CashBoxEntities">
+    <EntitySetMapping Name="CardBlacklists">
+      <EntityTypeMapping TypeName="CashBoxModel.CardBlacklist">
+        <MappingFragment StoreEntitySet="CardBlacklist">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="IssuingCountry" ColumnName="IssuingCountry" />
+          <ScalarProperty Name="CardType" ColumnName="CardType" />
+          <ScalarProperty Name="LastFourDigits" ColumnName="LastFourDigits" />
+          <ScalarProperty Name="FirstSixDigits" ColumnName="FirstSixDigits" />
+          <ScalarProperty Name="CardIssuerer" ColumnName="CardIssuerer" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="CardBlacklistID" ColumnName="CardBlacklistID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InvoiceAttachments">
+      <EntityTypeMapping TypeName="CashBoxModel.InvoiceAttachment">
+        <MappingFragment StoreEntitySet="InvoiceAttachment">
+          <ScalarProperty Name="DocName" ColumnName="DocName" />
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="AttachmentID" ColumnName="AttachmentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IpBlacklistings">
+      <EntityTypeMapping TypeName="CashBoxModel.IpBlacklisting">
+        <MappingFragment StoreEntitySet="IpBlacklisting">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="IpBlacklistingID" ColumnName="IpBlacklistingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LiveTransactions">
+      <EntityTypeMapping TypeName="CashBoxModel.LiveTransaction">
+        <MappingFragment StoreEntitySet="LiveTransactions">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+          <ScalarProperty Name="TransactionStatus" ColumnName="TransactionStatus" />
+          <ScalarProperty Name="ResponseCode" ColumnName="ResponseCode" />
+          <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CardProcessorTransactionRef" ColumnName="CardProcessorTransactionRef" />
+          <ScalarProperty Name="MerchantTransactionRef" ColumnName="MerchantTransactionRef" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MerchantLogoes">
+      <EntityTypeMapping TypeName="CashBoxModel.MerchantLogo">
+        <MappingFragment StoreEntitySet="MerchantLogo">
+          <ScalarProperty Name="LogoName" ColumnName="LogoName" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="MerchantLogoID" ColumnName="MerchantLogoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MerchantStatus">
+      <EntityTypeMapping TypeName="CashBoxModel.MerchantStatu">
+        <MappingFragment StoreEntitySet="MerchantStatus">
+          <ScalarProperty Name="isLiveMode" ColumnName="isLiveMode" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="MerchantStatusID" ColumnName="MerchantStatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentPages">
+      <EntityTypeMapping TypeName="CashBoxModel.PaymentPage">
+        <MappingFragment StoreEntitySet="PaymentPage">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="SuccessMessage" ColumnName="SuccessMessage" />
+          <ScalarProperty Name="CustomLink" ColumnName="CustomLink" />
+          <ScalarProperty Name="RedirectLink" ColumnName="RedirectLink" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="PageDescription" ColumnName="PageDescription" />
+          <ScalarProperty Name="PageName" ColumnName="PageName" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="PaymentmentPageID" ColumnName="PaymentmentPageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentPageFields">
+      <EntityTypeMapping TypeName="CashBoxModel.PaymentPageField">
+        <MappingFragment StoreEntitySet="PaymentPageFields">
+          <ScalarProperty Name="PaymentField" ColumnName="PaymentField" />
+          <ScalarProperty Name="PaymentPageID" ColumnName="PaymentPageID" />
+          <ScalarProperty Name="FieldID" ColumnName="FieldID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Priviledges">
+      <EntityTypeMapping TypeName="CashBoxModel.Priviledge">
+        <MappingFragment StoreEntitySet="Priviledge">
+          <ScalarProperty Name="PriviledgeType" ColumnName="PriviledgeType" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="PriviledgeID" ColumnName="PriviledgeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductFields">
+      <EntityTypeMapping TypeName="CashBoxModel.ProductField">
+        <MappingFragment StoreEntitySet="ProductFields">
+          <ScalarProperty Name="TransactionStatus" ColumnName="TransactionStatus" />
+          <ScalarProperty Name="MerchantRef" ColumnName="MerchantRef" />
+          <ScalarProperty Name="ProductPageID" ColumnName="ProductPageID" />
+          <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+          <ScalarProperty Name="ProductFieldID" ColumnName="ProductFieldID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductNames">
+      <EntityTypeMapping TypeName="CashBoxModel.ProductName">
+        <MappingFragment StoreEntitySet="ProductName">
+          <ScalarProperty Name="ProductPageID" ColumnName="ProductPageID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProductNameID" ColumnName="ProductNameID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductPages">
+      <EntityTypeMapping TypeName="CashBoxModel.ProductPage">
+        <MappingFragment StoreEntitySet="ProductPage">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="SuccessMessage" ColumnName="SuccessMessage" />
+          <ScalarProperty Name="PageName" ColumnName="PageName" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="CustomLink" ColumnName="CustomLink" />
+          <ScalarProperty Name="RedirectLink" ColumnName="RedirectLink" />
+          <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="ProductPageID" ColumnName="ProductPageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductPrices">
+      <EntityTypeMapping TypeName="CashBoxModel.ProductPrice">
+        <MappingFragment StoreEntitySet="ProductPrice">
+          <ScalarProperty Name="ProductPageID" ColumnName="ProductPageID" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ProductPriceID" ColumnName="ProductPriceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Settlements">
+      <EntityTypeMapping TypeName="CashBoxModel.Settlement">
+        <MappingFragment StoreEntitySet="Settlement">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="SettlementRef" ColumnName="SettlementRef" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="SettlementID" ColumnName="SettlementID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeamMembers">
+      <EntityTypeMapping TypeName="CashBoxModel.TeamMember">
+        <MappingFragment StoreEntitySet="TeamMember">
+          <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TestTransactions">
+      <EntityTypeMapping TypeName="CashBoxModel.TestTransaction">
+        <MappingFragment StoreEntitySet="TestTransactions">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+          <ScalarProperty Name="TransactionStatus" ColumnName="TransactionStatus" />
+          <ScalarProperty Name="ResponseCode" ColumnName="ResponseCode" />
+          <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="MerchantTransactionRef" ColumnName="MerchantTransactionRef" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tokens">
+      <EntityTypeMapping TypeName="CashBoxModel.Token">
+        <MappingFragment StoreEntitySet="Token">
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="MaskedCardNo" ColumnName="MaskedCardNo" />
+          <ScalarProperty Name="CardType" ColumnName="CardType" />
+          <ScalarProperty Name="TokenNo" ColumnName="TokenNo" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="TokenID" ColumnName="TokenID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="URLs">
+      <EntityTypeMapping TypeName="CashBoxModel.URL">
+        <MappingFragment StoreEntitySet="URL">
+          <ScalarProperty Name="CallBackURL" ColumnName="CallBackURL" />
+          <ScalarProperty Name="WebhookURL" ColumnName="WebhookURL" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="UriID" ColumnName="UriID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payouts">
+      <EntityTypeMapping TypeName="CashBoxModel.Payout">
+        <MappingFragment StoreEntitySet="Payout">
+          <ScalarProperty Name="SettlementDate" ColumnName="SettlementDate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="TotalTransactions" ColumnName="TotalTransactions" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="RequestCode" ColumnName="RequestCode" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="PayoutID" ColumnName="PayoutID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BusinessProfiles">
+      <EntityTypeMapping TypeName="CashBoxModel.BusinessProfile">
+        <MappingFragment StoreEntitySet="BusinessProfile">
+          <ScalarProperty Name="YoutubeLink" ColumnName="YoutubeLink" />
+          <ScalarProperty Name="InstagramLink" ColumnName="InstagramLink" />
+          <ScalarProperty Name="TwitterLink" ColumnName="TwitterLink" />
+          <ScalarProperty Name="FacebookLink" ColumnName="FacebookLink" />
+          <ScalarProperty Name="WebsiteLink" ColumnName="WebsiteLink" />
+          <ScalarProperty Name="PhysicalAddress" ColumnName="PhysicalAddress" />
+          <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="BusinessProfileID" ColumnName="BusinessProfileID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompanyProfiles">
+      <EntityTypeMapping TypeName="CashBoxModel.CompanyProfile">
+        <MappingFragment StoreEntitySet="CompanyProfile">
+          <ScalarProperty Name="DocName" ColumnName="DocName" />
+          <ScalarProperty Name="RcNo" ColumnName="RcNo" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="CompanyProfileID" ColumnName="CompanyProfileID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SettlementDetails">
+      <EntityTypeMapping TypeName="CashBoxModel.SettlementDetail">
+        <MappingFragment StoreEntitySet="SettlementDetail">
+          <ScalarProperty Name="SortCode" ColumnName="SortCode" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="SettlementDetailID" ColumnName="SettlementDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="CashBoxModel.Customer">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Plans">
+      <EntityTypeMapping TypeName="CashBoxModel.Plan">
+        <MappingFragment StoreEntitySet="Plan">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="InvioiceLimit" ColumnName="InvioiceLimit" />
+          <ScalarProperty Name="Interval" ColumnName="Interval" />
+          <ScalarProperty Name="PlanAmount" ColumnName="PlanAmount" />
+          <ScalarProperty Name="PlanDescription" ColumnName="PlanDescription" />
+          <ScalarProperty Name="PlanName" ColumnName="PlanName" />
+          <ScalarProperty Name="PlanCode" ColumnName="PlanCode" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="PlanID" ColumnName="PlanID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subscriptions">
+      <EntityTypeMapping TypeName="CashBoxModel.Subscription">
+        <MappingFragment StoreEntitySet="Subscription">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CustomerEmail" ColumnName="CustomerEmail" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="PlanID" ColumnName="PlanID" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="SubscriptionID" ColumnName="SubscriptionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Invoices">
+      <EntityTypeMapping TypeName="CashBoxModel.Invoice">
+        <MappingFragment StoreEntitySet="Invoice">
+          <ScalarProperty Name="DateRequested" ColumnName="DateRequested" />
+          <ScalarProperty Name="isAttachmentAllowed" ColumnName="isAttachmentAllowed" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="RequestedBy" ColumnName="RequestedBy" />
+          <ScalarProperty Name="CustomerEmail" ColumnName="CustomerEmail" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="InvoiceCode" ColumnName="InvoiceCode" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApiKeys">
+      <EntityTypeMapping TypeName="CashBoxModel.ApiKey">
+        <MappingFragment StoreEntitySet="ApiKey">
+          <ScalarProperty Name="isLiveMode" ColumnName="isLiveMode" />
+          <ScalarProperty Name="LivePublicKey" ColumnName="LivePublicKey" />
+          <ScalarProperty Name="LivePrivateKey" ColumnName="LivePrivateKey" />
+          <ScalarProperty Name="TestPublicKey" ColumnName="TestPublicKey" />
+          <ScalarProperty Name="TestPrivateKey" ColumnName="TestPrivateKey" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="KeyID" ColumnName="KeyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="CashBoxModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Banks">
+      <EntityTypeMapping TypeName="CashBoxModel.Bank">
+        <MappingFragment StoreEntitySet="Banks">
+          <ScalarProperty Name="SortCode" ColumnName="SortCode" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="BankID" ColumnName="BankID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Registrations">
+      <EntityTypeMapping TypeName="CashBoxModel.Registration">
+        <MappingFragment StoreEntitySet="Registration">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
+          <ScalarProperty Name="RegistrationID" ColumnName="RegistrationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../favicon1.ico">
+
+    <title>TapaPay - Make Safe Transactions</title>
+
+    <!--  RESET STYLES  -->
+    <link href="../Theme/css/reset.css" rel="stylesheet">
+
+    <!-- Core CSS -->
+    <link href="../Theme/css/lib/metro-bootstrap.min.css" rel="stylesheet">
+    <link href="../Theme/css/lib/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Country Code Style -->
+    <link rel="stylesheet" type="text/css" href="../Theme/css/flags.css">
+
+    <!-- Mobile Menu Style -->
+    <link rel="stylesheet" type="text/css" href="../Theme/css/mobile-menu-controller.css">
+
+    <!-- Custom CSS -->
+    <link href="../Theme/css/style.css" rel="stylesheet">
+
+    <script src='../Theme/js/lib/slimscroll.js'></script>
+
+    <script>
+        window.onload = function () {
+            var element = document.querySelectorAll('.slimScroll');
+
+            // Apply slim scroll plugin
+            var one = new slimScroll(element[0], {
+                'wrapperClass': 'scroll-wrapper unselectable mac',
+                'scrollBarContainerClass': 'scrollBarContainer',
+                'scrollBarContainerSpecialClass': 'animate',
+                'scrollBarClass': 'scroll',
+                'keepFocus': true
+            });
+ 
+            window.onresize = function () {
+                one.resetValues();
+                two.resetValues();
+                three.resetValues();
+            }
+        }
+    </script>
+
+    <script src="../Theme/js/modernizr.js"></script>
+
+    <script src="../Theme/js/lib/jquery.mmenu.min.all.js"></script>
+
+
+</head>
+
+
+
+
+<body id="page" class="dashboard-bg cbp-spmenu-push">
+
+
+    <section class="dashboard-lite content">
+
+        <div class="container">
+     
+            <div class="row">
+                <div class="inner-header">
+                    <a href="@Url.Action("Dashboard","Merchant")">
+                        <img src="../Theme/images/kudikonnect-logo.png" />
+                    </a>
+                    <div class="col-md-9 col-xs-12 pull-right">
+                        <div class="search-box">
+                            <form>
+                                <input class="col-md-10" type="search" placeholder="Search Services" />
+                                <button class="col-md-2"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                        @if (Utilities.GlobalData.getUserIDFromApplication != null)
+                        {
+                            <a href="@Url.Action("SignOut","Account")" class="btn btn-warning marg-left-10 radius-20 pull-right"> Sign Out <i class="fa fa-sign-in"></i></a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Login","Account")" class="btn btn-warning marg-left-10 radius-20 pull-right"> Sign In <i class="fa fa-sign-in"></i></a>
+                        }
+
+
+                        <div class="dropdown pull-right marg-left-10">
+                            <button class="btn btn-default radius-20 dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="fa fa-user"></span> Profile <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="/TransactionLogs/Index">@ViewBag.FullName</a></li>
+                                <li><a href="@Url.Action("MyProfile","Account")">Edit Profile</a></li>
+                                <li><a href="@Url.Action("ForgotPassword","Account")">Change password</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="@Url.Action("SingOut","Account")">Sign Out</a></li>
+                            </ul>
+                        </div>
+                        <script>
+                            function comingSoon() {
+                                alert('Coming soon')
+                            }
+                        </script>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                @RenderBody()
+
+                <div class="col-sm-4 app-sidebar-section slimScroll">
+                    <!-- <div class="col-sm-4 app-sidebar-section"> -->
+
+                    <div class="sidebar-module featured-apps">
+
+                        <div class="tile tile-wide tile-blue">
+                            <a href="@Url.Action("Logs","TransactionLogs")" class="fa-links">
+                                <span><img src="../Theme/images/apps/sign-up.png" /></span>
+                                <h2>Hello! <strong> @Utilities.GlobalData.getFullNameFromApplication</strong> <br>Total Amount Accrued: ₦@Utilities.GlobalData.getCurrentBalanceFromApplication</h2>
+                            </a>
+                        </div>
+
+
+
+                        <div class="tile tile-medium tile-deep-orange">
+                            <a href="@Url.Action("Logs","TransactionLogs")" class="fa-links">
+                                <span><img src="../Theme/images/apps/payment.png" /></span>
+                                <h3>My Transactions</h3>
+                            </a>
+                        </div>
+
+                        <div class="tile tile-medium tile-concrete">
+                            <a href="@Url.Action("Settlement","Payout")">
+                                <span><img src="../Theme/images/apps/payout.png" /></span>
+                                <h3>Payout</h3>
+                            </a>
+                        </div>
+
+
+                        <div class="tile tile-medium tile-teal">
+                            <a href="@Url.Action("YourCustomers","Customers")">
+                                <span><img src="../Theme/images/apps/customer.png" /></span>
+                                <h3>Customers</h3>
+                            </a>
+                        </div>
+
+                        <div class="tile tile-medium tile-belize-hole">
+                            <a href="@Url.Action("Product","ProductPage")">
+                                <span><img src="../Theme/images/apps/product.png" /></span>
+                                <h3>Product Page</h3>
+                            </a>
+                        </div>
+
+                        <div class="tile tile-medium tile-orange">
+                            <a href="@Url.Action("Page","PaymentPage")">
+                                <span><img src="../Theme/images/apps/paymentpage.png"></span>
+                                <h3>Payment Page</h3>
+                            </a>
+                        </div>
+
+                        <div class="tile tile-medium tile-purple">
+                            <a href="@Url.Action("Plans","Subscriptions")">
+                                <span><img src="../Theme/images/apps/subscriptions.png" /></span>
+                                <h3>Subscription</h3>
+                            </a>
+                        </div>
+
+                        <div class="tile tile-medium tile-yellow">
+                            <a href="@Url.Action("PaymentRequest","Invoice")">
+                                <span><img src="../Theme/images/apps/my-invoice.png" /></span>
+                                <h3>Invoice</h3>
+                            </a>
+                        </div>
+
+                        <div class="tile tile-medium tile-blue">
+                            <a href="#">
+                                <span><img src="../Theme/images/apps/connect.png" /></span>
+                                <h3>Connect</h3>
+                            </a>
+                        </div>
+
+
+                        <div class="tile tile-medium tile-green-sea">
+                            <a href="@Url.Action("ApiDetails","Developer")">
+                                <span><img src="../Theme/images/apps/API.png" /></span>
+                                <h3>API Keys</h3>
+                            </a>
+                        </div>
+
+                        <div class="tile tile-medium tile-pumpkin">
+                            <a href="#">
+                                <span><img src="../Theme/images/apps/migration.png" /></span>
+                                <h3>Account Migration</h3>
+                            </a>
+                        </div>
+
+                      
+
+                        <!--  <div class="tile tile-medium tile-red">
+                             <a href="#">
+                                 <span><img src="images/apps/help-online.png" /></span>
+                                 <h3>Help</h3>
+                             </a>
+                         </div> -->
+
+                    </div>
+
+                </div><!-- /.app-sidebar -->
+
+            </div>
+
+        </div>
+
+        <!-- Site footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="col-md-8">
+                    <p>&copy; Copyright @DateTime.Now.Year <a href="#" class="site-title">CashBox</a></p>
+                </div>
+
+                <div class="col-md-4 social-icons">
+                    <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
+                    <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+                    <a class="google-plus" href="#"><i class="fa fa-google-plus"></i></a>
+                    <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+                </div>
+            </div>
+        </footer>
+
+    </section>
+
+
+
+    <!-- // <script src="js/lib/bootstrap.min.js"></script> -->
+    <script src="../Theme/js/classie.js"></script>
+    <!-- // <script src="js/mobile-menu-controller.js"></script> -->
+
+    <script src="../Theme/js/lib/bootstrap.min.js"></script>
+
+
+
+</body>
+</html>

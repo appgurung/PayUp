@@ -1,0 +1,261 @@
+﻿
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/dataTables.bootstrap.css" rel="stylesheet" />
+
+
+<div class="col-sm-8 app-main-section">
+    <div class="row">
+        <div class="tile tile-blue kudi-header">
+            <h2 class="title"><img src="/Theme/images/apps/my-payments.png" />Your Payment Page/Link</h2>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <button type="button" id="PaymentRequest" class="btn btn-info pull-right">Add Payment Page</button>
+        </div>
+    </div>
+    <br />
+    <div class="margtop15">
+
+        <div id="PaymentModal" class="modal fade" tabindex="-1" role="dialog" style="overflow:scroll">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" style="text-align:center">New Payment Page</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <form>
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="NameofPage" class="col-sm-4 control-label">Name of Page</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="PageName" name="PageName" placeholder=" Page Name">
+                                    </div>
+                                </div>
+                                <br />
+                                <hr />
+                                <div class="form-group">
+                                    <label for="DescriptionofPage" class="col-sm-4 control-label">Description of Page (Optional)</label>
+
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="PageDescription" name="PageDescription" placeholder=" Description">
+                                        <hr />
+                                        <div class="col-sm-12 checkbox">
+                                            <label><input id="fixed" type="checkbox" value="">Fixed amount</label>
+
+                                            <label><input id="decideatcheckout" type="checkbox" value="">Decide amount at Checkout</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <hr />
+                                <div class="form-group">
+                                    <label for="Amount" class="col-sm-4 control-label"> Amount</label>
+
+                                    <div class="col-sm-8">
+                                        <input type="text" disabled class="form-control" id="Amount" name="Amount" placeholder=" Amount" />
+                                    </div>
+                                </div>
+
+                                <br />
+                                <hr />
+                                <div class="form-group">
+                                    <label for="RedirectLink" class="col-sm-4 control-label"> Redirect Link (Optional)</label>
+
+                                    <div class="col-sm-8">
+                                        <input type="url" class="form-control" id="RedirectLink" name="RedirectLink" placeholder=" http://redirect.link" />
+                                    </div>
+                                </div>
+                                <br />
+
+                                <div class="form-group">
+                                    <div class="col-sm-8">
+                                        <d id="Processing" style="font-style:italic;color:blue"></d>
+                                        <input type="url" class="form-control" id="CustomLink" name="CustomLink" placeholder="Your Custom Link Name" />
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    <label for="SuccessMessage" class="col-sm-4 control-label"> Success Message</label>
+
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="SuccessMessage" name="SuccessMessage" placeholder=" Message to show after payment" />
+                                    </div>
+
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    <label for="RedirectLink" class="col-sm-4 control-label" style="font-size:10px"> Do you want to collect any extra information? </label>
+
+                                    <div class="col-sm-8" id="Fields">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">Name of field</span>
+                                            <input type="text" class="form-control cloned" placeholder="e.g Phone Number">
+                                        </div>
+                                    </div>
+                                    <br />
+                                </div>
+                                <hr />
+                                <br />
+                                <button type="button" id="AnotherField" class="btn btn-info pull-right" > Add Another Filed</button>
+
+                                <br />
+                                <hr />
+
+                            </div>
+                            <!-- /.box-body -->
+                            <div class="box-footer">
+                                <button type="button" id="CreatePaymentPage" class="btn btn-info pull-right" ><i class="fa fa-money"></i> Create Payment Page</button>
+                            </div>
+                        </form>
+                        <div class="modal-footer">
+
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+        </div>
+
+
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <span id="transactOne" class="fa fa-plus-circle"></span> My Payment Pages
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
+
+                        <div>
+                            <div class="table-responsive my-payment">
+                                <table id="example2" class="table table-striped table-bordered">
+                                    <thead>
+                                    <thead>
+                                        <tr>
+                                            <th>Page Name</th>
+                                            <th>Page Description</th>
+                                            <th>Type</th>
+                                            <th>Amount (N)</th>
+                                            <th>Date Created</th>
+                                            <th>Link</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div><!-- /.app-main-section -->
+<script src="~/Scripts/jquery-2.2.3.min.js"></script>
+
+<script src="~/Scripts/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/dataTables.bootstrap.min.js"></script>
+
+<script>
+
+    document.getElementById("PaymentRequest").onclick = function () {
+
+        $('#PaymentModal').modal('show');
+    }
+
+    $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": true,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "ajax": {
+            "url": "/PaymentPage/GetPaymentPages",
+            "type": "GET",
+            "data": "json"
+        },
+        "order": [3, "desc"],
+        "columns": [
+            { "data": "PageName", "autoWidth": true },
+            { "data": "Description", "autoWidth": true },
+            { "data": "Type", "autoWidth": true },
+            { "data": "Amount", "autoWidth": true },
+            { "data": "DateCreated", "autoWidth": true },
+            { "data": "Link", "autoWidth": true },
+            {
+                "aTargets": [3],
+                "data": "PageID",
+                "mRender": function (data) {
+                    return '<button type="button" id="' + data + '" onclick="Delete(' + data + ')" class="btn btn-primary" style="background-color:#452152;border-color:#452152">Delete Page <i class = "fa fa-trash"></i></button>';
+
+                },
+            }
+        ]
+    });
+
+    document.getElementById("AnotherField").onclick = function () {
+        $('#Fields').append('<div class="input-group"><span class="input-group-addon">Name of field</span ><input type="text" class="form-control cloned" placeholder="e.g Phone Number"></div>')
+    }
+
+
+    document.getElementById("CustomLink").onkeyup = function () {
+
+        var url = document.getElementById("CustomLink").value;
+ 
+        if (url.length + 1 > 1) {
+            document.getElementById("Processing").innerHTML = "Checking Link Availability";
+
+            document.getElementById("CreatePaymentPage").disabled = true;
+
+            $.ajax({
+                url: '/PaymentPage/VerifyCustomlink/?link=' + url,
+                type: "get",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (result) {
+                    console.log(result);
+                    if (result === "Taken") {
+
+                        document.getElementById("Processing").innerHTML = "Sorry this link has been taken";
+                        document.getElementById("CreatePaymentPage").disabled = false;
+                        document.getElementById("CustomLink").value = "";
+                        if (url === null || url === "") {
+                            document.getElementById("Processing").innerHTML = "";
+                        }
+
+                    }
+                    else if (result === "Available") {
+
+                        document.getElementById("Processing").innerHTML = "Your link is available";
+                        document.getElementById("CreatePaymentPage").disabled = false;
+
+                    }
+
+                },
+                error: function (result) {
+                    swal({
+                        title: "Error",
+                        text: "Client Side Error, please check internet connection",
+                        type: "error"
+                    });
+                }
+            })
+        }
+    }
+
+</script>

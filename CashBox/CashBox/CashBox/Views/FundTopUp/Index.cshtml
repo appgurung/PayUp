@@ -1,0 +1,74 @@
+﻿
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+                <div class="col-sm-8 app-main-section">
+                    <div class="row">
+                        <div class="tile tile-blue kudi-header">
+                            <h2 class="title"><img src="../Theme/images/apps/my-payments.png" /> Topup Wallet</h2>
+                        </div>
+                    </div>
+                    <div class="margtop15">
+
+
+
+
+
+                        <script src="../bundles/jqueryc061?v=FVs3ACwOLIVInrAl5sdzR2jrCDmVOWFbZMY6g6Q0ulE1"></script>
+
+                        <script src="../bundles/jqueryval3656?v=hEGG8cMxk9p0ncdRUOJ-CnKN7NezhnPnWIvn6REucZo1"></script>
+
+
+                        <form action="https://www.kudikonnect.com/FundTopUp/Checkout" method="post">
+                            <input name="__RequestVerificationToken" type="hidden" value="SmXqIdpdn24suNakG0W0FSMnk87A8lOAbOgMcAJhvFExs_EmVcvAhTH2G8GXxqa5AFoLmgR7A3FptI6P-BzNLzMG8T-aJt83eSOkjy91omE1" />    <div class="form-horizontal">
+
+                                <hr />
+                                <input id="userAuth" type="hidden" value="0" />
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="Amount">Amount</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" data-val="true" data-val-number="The field Amount must be a number." data-val-required="The Amount field is required." id="Amount" name="Amount" placeholder="1000" type="text" value="" />
+                                        <span class="field-validation-valid text-danger" data-valmsg-for="Amount" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" id="topup" value="Pay With Local Card" class="btn btn-default radius-20" />
+
+                                        <input type="button" value="Pay With PayPal" class="btn btn-default radius-20" id="pay_with_paypal" />
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <script>
+    $("#pay_with_paypal").click(function () {
+        var userAuth = $("#userAuth").val();
+        if(userAuth == '1'){
+        var amt = $("#Amount").val();
+        var url = "/PayWithPayPal?amount=" + amt;
+        $.post(url, function (data) {
+            window.location.replace(data);
+        });
+        } else {
+            alert('Please login to pay with PayPal');
+            var login = '/Account/Login?returnUrl="/FundTopUp/Index"'
+            window.location.replace(login);
+        }
+    });
+
+    $("#international_card").click(function () {
+        var amt = $("#Amount").val();
+        var url = "/PayWithPayPal/UseCard?amount=" + amt;
+        window.location.replace(url);
+    });
+                        </script>
+
+
+                    </div>
+                </div><!-- /.app-main-section -->
+
+               
