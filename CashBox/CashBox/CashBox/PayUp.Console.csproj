@@ -13,8 +13,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CashBox</RootNamespace>
-    <AssemblyName>CashBox</AssemblyName>
+    <RootNamespace>PayUp.Console</RootNamespace>
+    <AssemblyName>PayUp.Console</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -537,21 +538,21 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MiddleWare\MiddleWare.csproj">
+    <ProjectReference Include="..\MiddleWare\PayUp.MiddleWare.csproj">
       <Project>{aed3ec44-297e-4086-a90d-c12b3e30e7d6}</Project>
-      <Name>MiddleWare</Name>
+      <Name>PayUp.MiddleWare</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NotificationManager\NotificationManager.csproj">
+    <ProjectReference Include="..\NotificationManager\PayUp.Notifications.csproj">
       <Project>{bf216827-16dc-4258-97fb-b8e1daa72e35}</Project>
-      <Name>NotificationManager</Name>
+      <Name>PayUp.Notifications</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Services\Services.csproj">
+    <ProjectReference Include="..\Services\PayUp.Services.csproj">
       <Project>{7b349f04-9db5-4b26-8695-aa59f3864041}</Project>
-      <Name>Services</Name>
+      <Name>PayUp.Services</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Utilities\Utilities.csproj">
+    <ProjectReference Include="..\Utilities\PayUp.Utilities.csproj">
       <Project>{cb704719-5b5f-4dde-ad6a-22d3c147d321}</Project>
-      <Name>Utilities</Name>
+      <Name>PayUp.Utilities</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

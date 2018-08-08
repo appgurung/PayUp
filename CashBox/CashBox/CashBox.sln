@@ -3,19 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "CashBox\Presentation.csproj", "{1956CD73-E338-40FA-98E6-747C6D92475E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayUp.Console", "CashBox\PayUp.Console.csproj", "{1956CD73-E338-40FA-98E6-747C6D92475E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashBox.Tests", "CashBox.Tests\CashBox.Tests.csproj", "{4A5D8806-5813-4B54-BC90-898F5001E5E5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayUp.UnitTests", "CashBox.Tests\PayUp.UnitTests.csproj", "{4A5D8806-5813-4B54-BC90-898F5001E5E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebJob", "WebJob\WebJob.csproj", "{30106A8C-39FE-4554-A474-005DC88C050D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayUp.WebJob", "WebJob\PayUp.WebJob.csproj", "{30106A8C-39FE-4554-A474-005DC88C050D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{7B349F04-9DB5-4B26-8695-AA59F3864041}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayUp.Services", "Services\PayUp.Services.csproj", "{7B349F04-9DB5-4B26-8695-AA59F3864041}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationManager", "NotificationManager\NotificationManager.csproj", "{BF216827-16DC-4258-97FB-B8E1DAA72E35}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayUp.Notifications", "NotificationManager\PayUp.Notifications.csproj", "{BF216827-16DC-4258-97FB-B8E1DAA72E35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiddleWare", "MiddleWare\MiddleWare.csproj", "{AED3EC44-297E-4086-A90D-C12B3E30E7D6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayUp.MiddleWare", "MiddleWare\PayUp.MiddleWare.csproj", "{AED3EC44-297E-4086-A90D-C12B3E30E7D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{CB704719-5B5F-4DDE-AD6A-22D3C147D321}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayUp.Utilities", "Utilities\PayUp.Utilities.csproj", "{CB704719-5B5F-4DDE-AD6A-22D3C147D321}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,5 +54,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A0EFD074-097D-42C0-822F-D389C45537E7}
 	EndGlobalSection
 EndGlobal

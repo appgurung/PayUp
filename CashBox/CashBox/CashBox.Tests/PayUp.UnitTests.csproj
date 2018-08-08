@@ -8,8 +8,8 @@
     <ProjectGuid>{4A5D8806-5813-4B54-BC90-898F5001E5E5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CashBox.Tests</RootNamespace>
-    <AssemblyName>CashBox.Tests</AssemblyName>
+    <RootNamespace>PayUp.UnitTests</RootNamespace>
+    <AssemblyName>PayUp.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -100,9 +100,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CashBox\Presentation.csproj">
+    <ProjectReference Include="..\CashBox\PayUp.Console.csproj">
       <Project>{1956CD73-E338-40FA-98E6-747C6D92475E}</Project>
-      <Name>Presentation</Name>
+      <Name>PayUp.Console</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
